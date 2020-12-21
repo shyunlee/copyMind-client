@@ -1,2 +1,2 @@
 # copyMind-client
-# copyMind-server
+
