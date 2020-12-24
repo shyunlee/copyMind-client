@@ -27,7 +27,7 @@ class Nav extends Component {
                     })}
                 </ul>
                 <ul className="navbar-controller">
-                        <NavControl />
+                       <NavControl />
                 </ul>
             </nav>
         );
