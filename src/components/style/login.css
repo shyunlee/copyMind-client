@@ -1,0 +1,29 @@
+ul{
+    list-style: none;
+    margin:0;
+    padding: 0;
+}
+
+#email{
+    position: absolute;
+    left:40%;
+    top:40%
+} 
+
+#pw {
+    position:absolute;
+    left:40%;
+    top:43%
+}
+
+#Login {
+    position:absolute;
+    left:45%;
+    top:47%
+}
+
+#SignUp{
+    position:absolute;
+    left:44.6%;
+    top:51%
+}
