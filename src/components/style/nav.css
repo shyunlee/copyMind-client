@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content:space-between;
+    background-color: floralwhite;
+    align-items:center;
+}
+
+.navbar-menu {
+    display:flex;
+    justify-content:space-between;
+    padding-left:0;
+    list-style: none;
+}
+
+.navbar a {
+    padding:0px 20px;
+    text-decoration: none;
+}
+
+
