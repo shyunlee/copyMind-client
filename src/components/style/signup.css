@@ -1,0 +1,29 @@
+#signup_email{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+#signup_username{
+    position: absolute;
+    left: 40%;
+    top: 44%
+}
+
+#signup_pw{
+    position: absolute;
+    left: 40%;
+    top: 48%
+}
+
+#signup_confirmPW{
+    position: absolute;
+    left: 40%;
+    top: 52%
+}
+
+#signup_button{
+    position: absolute;
+    left: 45%;
+    top: 56%
+}
