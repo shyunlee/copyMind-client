@@ -15,7 +15,7 @@ export default class Login extends React.Component {
     }
 
     render(){
-        console.log(this.state)
+        
         return (
             <div>
     
@@ -23,7 +23,13 @@ export default class Login extends React.Component {
     
                 <input type= "text" id='pw' name='password' placeholder="Password" value={this.state.password} onChange={this.handleChange.bind(this)}/>
     
-                <input id="Login" type="button" value="Login" formMethod="post" onClick={this.props}/>
+                <input id="Login" type="button" value="Login" 
+                onClick={
+                    () => {
+                    this.props.login(this.state)
+                    this.props.history.push('/')
+                    }
+                }/>
     
                 <input id="SignUp" type="submit" value="SignUp" onClick={() => {this.props.history.push('/signup')}}/>
 
