@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
-import {Main, ListCopy, ViewCopy, PostCopy, Login, Signup, MyProfile, Nav } from './components'
-
+import {ListCopy, ViewCopy, PostCopy, Login, Signup, MyProfile, Nav } from './components'
+import {_Main} from './containers'
 class App extends React.Component {
   state={
     menu:['Novel', 'Essay', 'Quotes', 'Poem']
@@ -22,7 +22,7 @@ class App extends React.Component {
               <Route path='/myprofile' component={MyProfile}/>
               <Route path='/view' component={ViewCopy}/>
               <Route path='/post' component={PostCopy}/>
-              <Route path='/' component={Main} />
+              <Route path='/' component={_Main} />
             </Switch>
         </div>
         <div className='footer'>

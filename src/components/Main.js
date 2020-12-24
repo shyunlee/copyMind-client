@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {BtnPostCopy, BtnViewCopy} from './index'
 
 
 class Main extends Component {
 
+
     render() {
         return (
             <div>
-                <BtnViewCopy />
-                <BtnPostCopy isLogin={this.props.isLogin}/>
+                <BtnViewCopy viewClickHandler={this.props.getRandomCopy} history={this.props.history}/>
+                <BtnPostCopy isLogin={this.props.isLogin} history={this.props.history}/>
                 {
                 this.props.isLogin ? '' : 
                     <div>
