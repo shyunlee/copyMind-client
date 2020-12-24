@@ -16,13 +16,13 @@ class App extends React.Component {
         </div>
         <div className='main'>
             <Switch>
-              <Route path='/' component={Main} />
               <Route path={menuPath.concat('/myposting', '/bookmark')} component={ListCopy} />
               <Route path='/login' component={Login}/>
               <Route path='/signup' component={Signup}/>
               <Route path='/myprofile' component={MyProfile}/>
               <Route path='/view' component={ViewCopy}/>
               <Route path='/post' component={PostCopy}/>
+              <Route path='/' component={Main} />
             </Switch>
         </div>
         <div className='footer'>
