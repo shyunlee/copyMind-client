@@ -27,7 +27,7 @@ class Nav extends Component {
                     })}
                 </ul>
                 <ul className="navbar-controller">
-                        My Page
+                       <NavControl />
                 </ul>
             </nav>
         );
@@ -41,13 +41,16 @@ function NavControl ({isLogin}) {
             <li><Link to="/signup">Signup</Link></li>
         </>
     )
-    if (isLogin) {
-        control = (
-            <li>My Page</li>
-        )
-    }
+    // if (isLogin) {
+    //     control = (
+    //         <li>My Page</li>
+    //     )
+    // }
     return (
-        {control}
+        <>
+            {control}
+        </>
+
     )
 }
 
