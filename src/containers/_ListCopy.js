@@ -3,7 +3,7 @@ import {ListCopy} from '../components'
 
 const mapStateToProps = (state) => {
     return {
-        copyArr: state.listcopy.copyArr
+        contentsList: state.listCopyReducer.contentsList
     }
 }
 

@@ -18,7 +18,7 @@ class ListCopy extends Component {
     render() {
         return (
             <div className="listPosting">
-                {this.props.copyArr.map((el, index) => {
+                {this.props.contentsList.map((el, index) => {
                    return  <List key={index} data={el} count={index+1}></List>
                 })}
             </div>

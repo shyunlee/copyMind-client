@@ -6,15 +6,15 @@ axios.defaults.withCredentials=true;
 
 const mapStateToProps = (state) => {
     return {
-        isLogin:state.loginHandler.isLogin
+        isLogin:state.loginReducer.isLogin
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     
     return{
-        login : (userInfo) => {
-            axios.post("http://localhost:8080/sign/signin",userInfo,{headers:{'Content-Type': 'applications/json'}})
+        loginHandler : (userInfo) => {
+            axios.post("http://localhost:8080/sign/signin",userInfo,{headers:{'Content-Type': 'application/json'}})
             .then(res =>{ 
                 // console.log(data)
                 if(res.data.message === 'ok'){

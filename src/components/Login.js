@@ -9,11 +9,9 @@ export default class Login extends React.Component {
             Email:'',
             Password:''
         }
-        
     }
 
     componentDidUpdate(){
-        console.log(this.props.isLogin)
         if(this.props.isLogin){
             this.props.history.push('/')
         }
@@ -26,11 +24,10 @@ export default class Login extends React.Component {
     }
 
     signupClickHandler(){
-        this.props.login(this.state)
+        this.props.loginHandler(this.state)
     }
 
     render(){
-
         return (
             <div>
     
@@ -40,7 +37,7 @@ export default class Login extends React.Component {
     
                 <input id="Login" type="button" value="Login" 
                 onClick={
-                    ()=>{this.props.login(this.state)}
+                    ()=>{this.props.loginHandler(this.state)}
                 }
                 />
     
