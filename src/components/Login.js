@@ -1,41 +1,58 @@
 import React from 'react'
 import './style/login.css'
+// import store from '../store'
 
 export default class Login extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            email:'',
-            password:''
+            Email:'',
+            Password:''
+        }
+        
+    }
+
+    componentDidUpdate(){
+        console.log(this.props.isLogin)
+        if(this.props.isLogin){
+            this.props.history.push('/')
         }
     }
 
     handleChange(e){
+        e.target.value.replace(/</g, '&lt')
+        e.target.value.replace(/>/g, '&gt')
         this.setState({[e.target.name] : e.target.value})
     }
 
+    signupClickHandler(){
+        this.props.login(this.state)
+    }
+
     render(){
-        
+
         return (
             <div>
     
-                <input type= "text" id='email' name='email' placeholder="Email" value={this.state.email} onChange={this.handleChange.bind(this)}/>
+                <input type= "email" id='email' name='Email' placeholder="Email" value={this.state.Email} onChange={this.handleChange.bind(this)}/>
     
-                <input type= "text" id='pw' name='password' placeholder="Password" value={this.state.password} onChange={this.handleChange.bind(this)}/>
+                <input type= "password" id='pw' name='Password' placeholder="Password" value={this.state.Password} onChange={this.handleChange.bind(this)}/>
     
                 <input id="Login" type="button" value="Login" 
                 onClick={
-                    () => {
-                    this.props.login(this.state)
-                    this.props.history.push('/')
-                    }
-                }/>
+                    ()=>{this.props.login(this.state)}
+                }
+                />
     
-                <input id="SignUp" type="submit" value="SignUp" onClick={() => {this.props.history.push('/signup')}}/>
+                <input id="SignUp" type="submit" value="SignUp" 
+                onClick={
+                    () => {this.props.history.push('/signup')
+                    }}
+                    />
 
-                <input id="AOuth-Google" type="button" value="LOGIN WITH GOOGLE" onClick={this.props}/>
+                <input id="AOuth-Google" type="button" value="LOGIN WITH GOOGLE" />
 
-                <input id="AOuth-Github" type="button" value="LOGIN WITH GITHUB" onClick={this.props}/>
+                <input id="AOuth-Github" type="button" value="LOGIN WITH GITHUB" />
     
             </div>
         )

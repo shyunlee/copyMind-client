@@ -6,7 +6,7 @@ export const GET_USER_INFO = 'GET_USER_INFO'
 export const LISTUP_COPIES = 'LISTUP_COPIES'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
-
+export const SIGNUP = 'SIGNUP'
 
 export const actionGetRandomCopy = (copy) => ({
     type:GET_RANDOM_COPY,
@@ -36,4 +36,14 @@ export const actionLogin = (isLogin) => ({
 export const actionLogout = (isLogin) => ({
     type:LOGOUT,
     isLogin
+})
+
+export const actionSignUp = (signup) => ({
+    type:SIGNUP,
+    signup
+})
+
+export const actionSignUpErrorMassage = (errorMessage) =>({
+    type:SIGNUP,
+    errorMessage
 })

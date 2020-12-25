@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
-import {ListCopy, ViewCopy, PostCopy, Login, Signup, MyProfile, Nav } from './components'
-import {_Main} from './containers'
+import {ViewCopy, PostCopy, MyProfile, Nav } from './components'
+import {_Main, _Login, _Signup, _ListCopy} from './containers'
 class App extends React.Component {
   state={
     menu:['Novel', 'Essay', 'Quotes', 'Poem']
@@ -16,9 +16,9 @@ class App extends React.Component {
         </div>
         <div className='main'>
             <Switch>
-              <Route path={menuPath.concat('/myposting', '/bookmark')} component={ListCopy} />
-              <Route path='/login' component={Login}/>
-              <Route path='/signup' component={Signup}/>
+              <Route path={menuPath.concat('/myposting', '/bookmark')} component={_ListCopy} />
+              <Route path='/login' component={_Login}/>
+              <Route path='/signup' component={_Signup}/>
               <Route path='/myprofile' component={MyProfile}/>
               <Route path='/view' component={ViewCopy}/>
               <Route path='/post' component={PostCopy}/>

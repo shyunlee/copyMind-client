@@ -1,18 +1,54 @@
 import React from 'react'
 import './style/signup.css'
-export default function Signup() {
-    return (
-        <div>
-            <input id="signup_email" type="text" placeholder="Email" />
+import store from '../store'
 
-            <input id="signup_username" type="text" placeholder="User Name" />
-            
-            <input id="signup_pw" type="text" placeholder="Password" />
+export default class Signup extends React.Component {
+    constructor(props){
+        super(props)
 
-            <input id="signup_confirmPW" type="text" placeholder="Confirm Password" />
+        this.state = {
+            Email:'',
+            Name:'',
+            Password:'',
+            checkPW:''
+        }
+        
+    }
 
-            <button id="signup_button">Signup</button>
+    componentDidUpdate(){
+        if(store.getState().signupHandler.signup){
+           this.props.history.push('/login')             
+        }  
+    }
+    changeHandler(e){
+        this.setState({[e.target.name]:e.target.value})
+    }
 
-        </div>
-    )
+
+
+    render(){
+
+        return (
+            <div>
+                <input id="signup_email" type="email" placeholder="Email" name="Email" value={this.state.Email} onChange={this.changeHandler.bind(this)}/>
+    
+                <input id="signup_username" type="text" placeholder="User Name" name="Name" value={this.state.Name} onChange={this.changeHandler.bind(this)}/>
+                
+                <input id="signup_pw" type="password" placeholder="Password" name="Password" value={this.state.Password} onChange={this.changeHandler.bind(this)}/>
+    
+                <input id="signup_confirmPW" type="password" placeholder="Confirm Password" name="checkPW" value={this.state.checkPW} onChange={this.changeHandler.bind(this)}/>
+    
+                <button 
+                id="signup_button" 
+                onClick={
+                        ()=>{this.props.signupHandle(this.state)}
+                        }>
+                        Signup</button>
+                {this.props.errorMessage?<div className="alert-box">
+                  {this.props.errorMessage}
+                </div>:null}
+            </div>
+        )
+    }
+    
 }
