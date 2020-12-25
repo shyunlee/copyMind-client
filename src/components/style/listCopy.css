@@ -1,0 +1,12 @@
+.listPosting{
+    display:flex;
+}
+
+.posting{
+    flex:1 1 auto;
+    list-style: none;
+    width:30px;
+    height: auto;
+    background-color: #fc8621;
+    border: 1px solid black;
+}

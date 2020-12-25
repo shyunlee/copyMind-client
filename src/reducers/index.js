@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
-import test from './test'
-import viewCopy from './viewCopy'
-import postCopy from './postCopy'
+import viewCopy from './viewCopyReducer'
+import postCopyReducer from './postCopyReducer'
+import loginReducer from './loginReducer'
+import listCopyReducer from './listCopyReducer'
+
 
 export default combineReducers({
-    test,
     viewCopy,
-    postCopy
+    postCopyReducer,
+    loginReducer,
+    listCopyReducer
 })
