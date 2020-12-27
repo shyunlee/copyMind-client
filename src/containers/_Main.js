@@ -5,6 +5,7 @@ import {actionGetRandomCopy} from '../actions'
 axios.defaults.withCredentials=true;
 
 
+
 const mapStateToProps = (state) => {
     return {
         isLogin:state.isLogin,

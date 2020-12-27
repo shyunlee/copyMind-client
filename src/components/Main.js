@@ -5,7 +5,6 @@ import {BtnPostCopy, BtnViewCopy} from './index'
 
 class Main extends Component {
 
-
     render() {
         return (
             <div>

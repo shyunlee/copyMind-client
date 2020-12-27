@@ -1,16 +1,18 @@
 body {
-  margin:0;
+  margin: 0;
   background-color: azure;
 }
 
 .header {
   border: 1px solid gainsboro;
-  height:10vh;
+  height: 10vh;
 }
 
 .main {
   border: 1px solid wheat;
   height: 80vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .footer {

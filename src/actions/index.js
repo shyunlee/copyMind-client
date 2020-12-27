@@ -42,8 +42,3 @@ export const actionSignUp = (signup) => ({
     type:SIGNUP,
     signup
 })
-
-export const actionSignUpErrorMassage = (errorMessage) =>({
-    type:SIGNUP,
-    errorMessage
-})
