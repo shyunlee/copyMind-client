@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {useStore} from 'react-redux'
 
-class MyProfile extends Component {
-    render() {
+const MyProfile = (props) => {
+       const store = useStore()
+       console.log(store)
+       const state = store.getState()
+       console.log(state)
+       const userInfo = state.myProfileReducer.userInfo
         return (
             <div>
-                MyProfile
+                <p>user name: {userInfo.userName}</p>
+                <p>email : {userInfo.email}</p>
+                <p>bookmarkCount: {userInfo.bookmarkCount}</p>
+                <p>postCount:{userInfo.postCount}</p>
             </div>
         );
-    }
 }
 
 export default MyProfile;

@@ -1,8 +1,9 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
-import {ViewCopy, PostCopy, MyProfile, Nav,Signup } from './components'
-import {_Main, _Login, _ListCopy} from './containers'
+import {PostCopy,Signup, MyProfile } from './components'
+import {_Main, _Login, _ListCopy, _ViewCopy, _Nav, _MyPage} from './containers'
+
 class App extends React.Component {
   state={
     menu:['Novel', 'Essay', 'Quotes', 'Poem']
@@ -12,7 +13,7 @@ class App extends React.Component {
    return (
       <div>
         <div className='header'>
-          <Nav menu={this.state.menu}/>
+          <_Nav menu={this.state.menu}/>
         </div>
         <div className='main'>
             <Switch>
@@ -20,8 +21,9 @@ class App extends React.Component {
               <Route path='/login' component={_Login}/>
               <Route path='/signup' component={Signup}/>
               <Route path='/myprofile' component={MyProfile}/>
-              <Route path='/view' component={ViewCopy}/>
-              <Route path='/post' component={PostCopy}/>
+              <Route path='/mypage' component={_MyPage}/>
+              <Route path='/view' component={_ViewCopy}/>
+              <Route path='/post' component={PostCopy} history={this.props.history}/>
               <Route path='/' component={_Main} />
             </Switch>
         </div>

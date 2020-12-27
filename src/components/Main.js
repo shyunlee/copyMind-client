@@ -9,8 +9,8 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <BtnViewCopy viewClickHandler={this.props.getRandomCopy} history={this.props.history}/>
-                <BtnPostCopy isLogin={this.props.isLogin} history={this.props.history}/>
+                <BtnViewCopy className='btn-viewcopy' viewClickHandler={this.props.getRandomCopy} history={this.props.history}/>
+                <BtnPostCopy className='btn-postcopy' isLogin={this.props.isLogin} history={this.props.history}/>
                 {
                 this.props.isLogin ? '' : 
                     <div>

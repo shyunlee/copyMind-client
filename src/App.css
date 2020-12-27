@@ -11,6 +11,10 @@ body {
 .main {
   border: 1px solid wheat;
   height: 80vh;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+
 }
 
 .footer {
