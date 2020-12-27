@@ -21,13 +21,13 @@ class Nav extends Component {
                         this.count++
                         return (
                             <li key={this.count}>
-                                <Link to={lowerLetter}>{el}</Link>
+                                <Link to={lowerLetter} onClick={this.props.getCopyList}>{el}</Link>
                             </li>
                         )
                     })}
                 </ul>
                 <ul className="navbar-controller">
-                       <NavControl />
+                       <NavControl isLogin={this.props.isLogin} />
                 </ul>
             </nav>
         );
@@ -39,6 +39,7 @@ function NavControl ({isLogin}) {
         <>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/signup">Signup</Link></li>
+            <li><Link to="/mypage">My Page</Link></li>
         </>
     )
     // if (isLogin) {

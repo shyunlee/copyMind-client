@@ -1,0 +1,21 @@
+.view-copy {
+    border:1px solid black;
+    width:50%;
+    height:90%;
+    display:flex;
+    flex-flow:column;
+    justify-content: space-evenly;
+}
+
+.view-content {
+    border:1px solid grey;
+    margin:10px;
+    height:85%;
+}
+
+.view-btn {
+    border:1px solid blue;
+    margin:10px;
+    display:flex;
+    justify-content: space-evenly;
+}
