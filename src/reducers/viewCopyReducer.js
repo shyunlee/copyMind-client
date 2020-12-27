@@ -4,7 +4,7 @@ const initialState = {
     viewCopy:{}
 }
 
-const viewCopy = (state=initialState, action) => {
+const viewCopyReducer = (state=initialState, action) => {
     switch (action.type) {
         case GET_RANDOM_COPY:
             return Object.assign({}, state, {viewCopy:action.copy})
@@ -14,6 +14,6 @@ const viewCopy = (state=initialState, action) => {
 }
 
 
-export default viewCopy;
+export default viewCopyReducer;
 
 
