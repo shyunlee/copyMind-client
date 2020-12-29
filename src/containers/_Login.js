@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import {Login} from '../components'
 import axios from 'axios'
-import {actionLogin} from '../actions'
+import {actionLogin, URL} from '../actions'
 axios.defaults.withCredentials=true;
 
 const mapStateToProps = (state) => {
@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
     
     return{
         loginHandler : (userInfo) => {
-            axios.post("http://localhost:8080/sign/signin",userInfo,{headers:{'Content-Type': 'application/json'}})
+            axios.post(`${URL}/sign/signin`,userInfo,{headers:{'Content-Type': 'application/json'}})
             .then(res =>{ 
                 // console.log(data)
                 if(res.data.message === 'ok'){

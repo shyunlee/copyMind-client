@@ -7,5 +7,4 @@ export { default as Main } from './Main';
 export { default as Nav } from './Nav';
 export { default as BtnViewCopy } from './BtnViewCopy';
 export { default as BtnPostCopy } from './BtnPostCopy';
-export { default as MyPage } from './MyPage';
 export { default as MyProfile } from './MyProfile';

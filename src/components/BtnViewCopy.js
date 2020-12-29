@@ -4,7 +4,7 @@ const BtnViewCopy = ({viewClickHandler,history}) => {
     return (
         <div>
             <input className='btn' type="button" value="Today's Copy" onClick={() => {
-                viewClickHandler()
+                viewClickHandler('view')
                 history.push('./view')
             }} />
         </div>
