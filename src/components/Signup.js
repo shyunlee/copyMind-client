@@ -1,93 +1,74 @@
-import React from 'react'
+import React, {useState} from 'react';
+import {useDetectOutsideClick} from '../useDetectOutsideClick'
 import './style/signup.css'
+import {URL} from '../actions'
 import axios from 'axios'
+axios.defaults.withCredentials=true;
+
+const Signup = (props) => {
+    const [email, setEmail] = useState('')
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    const [checkPW, setCheckPW] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+
+    let userInfo = {email, userName, password, checkPW}
 
 
-export default class Signup extends React.Component {
-    constructor(props){
-        super(props)
-
-        this.state = {
-            userInfo : {
-                Email:'',
-                Name:'',
-                Password:'',
-                checkPW:''
-            },
-            isSignup:false,
-            errorMessage:''
-        }
-        
-    }
-
-    componentDidUpdate(){
-        if(this.state.isSignup){
-           this.props.history.push('/login')             
-        }  
-    }
-
-    changeHandler(e){
-        this.setState({
-            userInfo:{...this.state.userInfo,[e.target.name]:e.target.value}
-        })
-    }
-
-    checkEmailHandler(email){
-        if(!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email)){
-            this.setState({errorMessage : "이메일 형식이 아닙니다."})
+    const handleChange = (target) => {
+        switch(target.name) {
+            case 'email' :
+                setEmail(target.value)
+            case 'userName':
+                setUserName(target.value)
+            case 'password':
+                setPassword(target.value)
+            case 'checkPW':
+                setCheckPW(target.value)
         }
     }
 
-    signupHandle(userInfo){
-        console.log(userInfo)
-        const {Email, Name, Password, checkPW} = userInfo
-            // console.log(userInfo)
-            // console.log(Email,Name,Password,checkPW)
-        if(!Email || !Password || !Name || !checkPW){
-            this.setState({errorMessage : "모든 항목은 필수입니다."})
-        }else if(Password !== checkPW){
-            this.setState({errorMessage : "비밀번호가 맞지않습니다."})
-        }else if(!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(Email)){
-            this.setState({errorMessage : "이메일 형식이 아닙니다."})
-        }else if(!/^.*(?=^.{8,15}$)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&+=]).*$/.test(Password)){
-            this.setState({errorMessage : "비밀번호 형식이 아닙니다."})
+
+    const signupHandle = () => {
+
+        if(!email || !password || !userName || !checkPW){
+            setErrorMessage("모든 항목은 필수입니다.")
+        }else if(password !== checkPW){
+            setErrorMessage("비밀번호가 맞지않습니다.")
+        }else if(!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email)){
+            setErrorMessage("이메일 형식이 아닙니다.")
+        }else if(!/^.*(?=^.{8,15}$)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&+=]).*$/.test(password)){
+            setErrorMessage("비밀번호 형식이 아닙니다.")
         } else{
-            axios.post('http://localhost:8080/sign/signup',{Email:Email, Name:Name, Password:Password},{headers:{'Content-Type':'application/json'}})
+            axios.post(`${URL}/sign/signup`,{email, userName, password},{headers:{'Content-Type':'application/json'}})
             .then(res => {
                 console.log(res)
             if(res.data.message === 'signup success!'){
-                this.setState({isSignup : true})
+                props.modalClose('signup')
+                props.modalOpen('login')
             }
         })
         .catch(err => console.log(err))
         }
     }
 
+    const signupModalRef = React.useRef(null)
+    useDetectOutsideClick(signupModalRef, () => props.modalClose('signup'))
 
+    return (
+        <div ref={signupModalRef}>
+            <input id="signup_email" type="email" placeholder="Email" name="email" onChange={(e) => handleChange(e.target)}/>
 
-    render(){
+            <input id="signup_username" type="text" placeholder="User Name" name="userName" onChange={(e) => handleChange(e.target)}/> 
+            
+            <input id="signup_pw" type="password" placeholder="Password" name="password" onChange={(e) => handleChange(e.target)}/> 
 
-        return (
-            <div>
-                <input id="signup_email" type="email" placeholder="Email" name="Email" value={this.state.userInfo.Email} onChange={this.changeHandler.bind(this)}/>
-    
-                <input id="signup_username" type="text" placeholder="User Name" name="Name" value={this.state.userInfo.Name} onChange={this.changeHandler.bind(this)}/> 
-                
-                <input id="signup_pw" type="password" placeholder="Password" name="Password" value={this.state.userInfo.Password} onChange={this.changeHandler.bind(this)}/> 
-    
-                <input id="signup_confirmPW" type="password" placeholder="Confirm Password" name="checkPW" value={this.state.userInfo.checkPW} onChange={this.changeHandler.bind(this)}/>
-    
-                <button 
-                id="signup_button" 
-                onClick={
-                        ()=>{this.signupHandle(this.state.userInfo)}
-                        }>
-                        Signup</button>
-                {this.state.errorMessage?<div className="alert-box">
-                  {this.state.errorMessage}
-                </div>:null}
-            </div>
-        )
-    }
-    
-}
+            <input id="signup_confirmPW" type="password" placeholder="Confirm Password" name="checkPW" onChange={(e) => handleChange(e.target)}/>
+
+            <button id="signup_button" onClick={signupHandle}>Signup</button>
+            {errorMessage?<div className="alert-box">{errorMessage}</div>:null}
+        </div>
+    )
+};
+
+export default Signup;

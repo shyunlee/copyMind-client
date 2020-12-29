@@ -1,7 +1,13 @@
 import {GET_RANDOM_COPY} from '../actions'
 
 const initialState = {
-    viewCopy:{}
+    viewCopy:{
+        id:null,
+        title:'title',
+        writer:'writer',
+        content:'content',
+        category:'category'
+    }
 }
 
 const viewCopyReducer = (state=initialState, action) => {

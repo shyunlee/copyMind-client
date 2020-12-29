@@ -1,7 +1,7 @@
 import {Main} from '../components'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import {actionGetRandomCopy} from '../actions'
+import {actionGetRandomCopy, URL} from '../actions'
 axios.defaults.withCredentials=true;
 
 
@@ -14,8 +14,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getRandomCopy:() => {
-            axios.get('http://13.209.5.235:8080/copy/getcopy')
+        getRandomCopy:(pathName) => {
+            axios.post(`${URL}/copy/getcopy`, {pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
                 console.log(res)
                 dispatch(actionGetRandomCopy(res.result[0]))
