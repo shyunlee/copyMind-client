@@ -34,7 +34,10 @@ function List(props){
     }
 
     return (  
-        <div className="posting" >
+        <div className="posting" onClick={() => {
+            props.sendCopyToState(props.data)
+            props.history.push('/view')
+        }}>
             <figure className="snip1200">
                 <img
                     src={valueSrc}
@@ -60,7 +63,6 @@ function List(props){
 class ListCopy extends Component {
     constructor (props) {
         super(props)
-
         this.count=0
     }
 
@@ -69,7 +71,7 @@ class ListCopy extends Component {
             <div className="listPosting">
                 {this.props.contentsList.map( el => {
                     this.count++
-                   return  (<List key={this.count} data={el} />)
+                   return  (<List key={this.count} data={el} history={this.props.history} sendCopyToState={this.props.sendCopyToState} />)
                 })}
             </div>
         );

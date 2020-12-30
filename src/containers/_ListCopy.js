@@ -1,5 +1,6 @@
 import {connect} from 'react-redux'
 import {ListCopy} from '../components'
+import {actionGetRandomCopy} from '../actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -7,5 +8,12 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        sendCopyToState: (data) => {
+            dispatch(actionGetRandomCopy(data))
+        }
+    }
+}
 
-export default connect(mapStateToProps)(ListCopy)
+export default connect(mapStateToProps, mapDispatchToProps)(ListCopy)

@@ -27,8 +27,8 @@ const mapDispatchToProps = (dispatch) => {
         getUserInfo: () => {
             axios.get(`${URL}/user/userinfo`)
             .then(res => {
-                console.log('Nav-getUserInfo', res)
-                dispatch(actionGetUserInfo(res))
+                console.log('Nav-getUserInfo', res.data)
+                dispatch(actionGetUserInfo(res.data))
             })
         },
 
@@ -51,9 +51,7 @@ const mapDispatchToProps = (dispatch) => {
         logoutHandler: () => {
             axios.post(`${URL}/sign/signout`)
             .then(res=> {
-                console.log(res.data.message)
                 if (res.data.message === 'successfully log-out!') {
-                    console.log('work')
                     dispatch(actionLogout(false))
                 }
             })

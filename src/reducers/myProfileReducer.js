@@ -15,7 +15,7 @@ const initialState = {
 const myProfileReducer = (state=initialState, action) => {
     switch (action.type) {
         case GET_USER_INFO:
-            return Object.assign({},state,action.userInfo)
+            return Object.assign({},state, {userInfo:action.userInfo})
         default:
             return state
     }
