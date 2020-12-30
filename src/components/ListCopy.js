@@ -11,6 +11,7 @@ function List(props){
         "sample99":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample99.jpg",        
     }
 
+    const {content, title, writer, category, likeCount} = props.data
     
     const random = (urls) => {
         const randomValue = Math.floor(Math.random()*10) % 6;
@@ -21,21 +22,18 @@ function List(props){
 
     const {keyAlt, valueSrc} = random(urls)
 
-    let count = props.data.posting.length / 20
+    let count = content.length / 20
     const increaseValue = 20;
     let startValue = 0;
     let endValue = increaseValue;
     let line = ""
     for(let i = 0; i < count; i++){
-        line += `${props.data.posting.slice(startValue, endValue)}\n`
+        line += `${content.slice(startValue, endValue)}\n`
         startValue += increaseValue
         endValue += increaseValue
     }
-    
 
-
-    return (
-        
+    return (  
         <div className="posting" >
             <figure className="snip1200">
                 <img
@@ -48,29 +46,30 @@ function List(props){
                     </p>
                     <div className="heading">
                         <h2>
-                            <div>{props.data.title}</div>
-                            <div>{props.data.writer}</div>
+                            <div>{title}</div>
+                            <div>{writer}</div>
                         </h2>
                     </div>
                 </figcaption>
-                {/* <a href="#"></a> */}
             </figure>
-
-            {/* <div className="post">{props.data.posting}</div>
-            <div className="title">{props.data.title}</div>
-            <div className="writer">{props.data.writer}</div> */}
         </div>
     )
 }
 
 
 class ListCopy extends Component {
+    constructor (props) {
+        super(props)
+
+        this.count=0
+    }
 
     render() {
         return (
             <div className="listPosting">
-                {this.props.contentsList.map((el, index) => {
-                   return  <List key={index} data={el} count={index+1}></List>
+                {this.props.contentsList.map( el => {
+                    this.count++
+                   return  (<List key={this.count} data={el} />)
                 })}
             </div>
         );

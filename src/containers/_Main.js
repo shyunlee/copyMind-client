@@ -8,7 +8,7 @@ axios.defaults.withCredentials=true;
 
 const mapStateToProps = (state) => {
     return {
-        isLogin:state.isLogin,
+        isLogin:state.loginReducer.isLogin,
     }
 }
 
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
             axios.post(`${URL}/copy/getcopy`, {pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
                 console.log(res)
-                dispatch(actionGetRandomCopy(res.result[0]))
+                dispatch(actionGetRandomCopy(res.data.result[0]))
             })
         }
     }

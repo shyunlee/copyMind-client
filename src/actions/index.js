@@ -7,7 +7,8 @@ export const LISTUP_COPIES = 'LISTUP_COPIES'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const SIGNUP = 'SIGNUP'
-export const URL = 'http://13.209.5.235:8080'
+// export const URL = 'http://13.209.5.235:8080'
+export const URL = 'http://localhost:8080'
 
 export const actionGetRandomCopy = (copy) => ({
     type:GET_RANDOM_COPY,

@@ -44,9 +44,6 @@ class App extends React.Component {
             :
             <Switch>
               <Route path={menuPath.concat('/myposting', '/bookmark')} component={_ListCopy} />
-              {/* <Route path='/login' component={_Login}/>
-              <Route path='/signup' component={Signup}/> */}
-              {/* <Route path='/myprofile' component={MyProfile}/> */}
               <Route path='/view' component={_ViewCopy}/>
               <Route path='/post' component={PostCopy} history={this.props.history}/>
               <Route path='/' component={_Main} />

@@ -14,17 +14,14 @@ export default function Login(props)  {
             email:'',
             password:''
         })
-        const {email,  password} = inputs
         const dispatch = useDispatch()
+        const {email, password} = inputs
 
         const onChange = (e) => {
-            const {email, password} = e.target
-            e.target.value.replace(/</g, '&lt')
-            e.target.value.replace(/>/g, '&gt')
-            setInputs({
-                ...inputs,
-                [email]:password
-            })
+            let {name, value} = e.target
+            value = value.replace(/</g, '&lt')
+            value = value.replace(/>/g, '&gt')
+            setInputs({...inputs, [name]:value})
         }
 
         const loginHandler = (postData) => {
@@ -32,6 +29,7 @@ export default function Login(props)  {
             .then(res =>{ 
                 if(res.data.message === 'ok'){
                     dispatch(actionLogin(true))
+                    props.modalClose('login')
                 }
             })
         }
