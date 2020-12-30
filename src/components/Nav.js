@@ -35,7 +35,8 @@ class Nav extends Component {
                     })}
                 </ul>
                 <div className='navbar-controller'>
-                    <NavLogin modalOpen={this.props.modalOpen}/>
+                    {this.props.isLogin
+                    ?
                     <NavMyPage
                         toggleChange={this.toggleChange.bind(this)}
                         isToggleOn={this.state.isToggleOn}
@@ -45,6 +46,9 @@ class Nav extends Component {
                         logoutHandler={this.props.logoutHandler}
                         modalOpen={this.props.modalOpen}
                     />
+                    :
+                    <NavLogin modalOpen={this.props.modalOpen}/>
+                    }
                 </div>
             </nav>
         );

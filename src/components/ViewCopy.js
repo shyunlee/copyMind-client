@@ -13,6 +13,7 @@ class ViewCopy extends Component {
 
 
     addOrRemoveLike () {
+        console.log('clicked')
         let endPoint
         if (this.state.isLikeOn) {
             endPoint = `${URL}/copy/removelike`

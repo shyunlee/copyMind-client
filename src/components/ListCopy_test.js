@@ -11,9 +11,7 @@ class ListCopy extends Component {
             <div>
                 {this.props.contentsList.map(el => {
                     this.count++
-                    return (
-                        <EachCopy key={this.count} copy={el}/>
-                    )
+                    return (<EachCopy key={this.count} copy={el}/>)
                 })}
             </div>
         );
@@ -21,13 +19,13 @@ class ListCopy extends Component {
 }
 
 function EachCopy (props) {
-    
+    const {content, title, writer, category, likeCount} = props.copy
     return (
         <div className='eachCopy'>
-            <div className='eachCopy-content'>content</div>
-            <div className='eachCopy-category'>category</div>
-            <div className='eachCopy-title'>title</div>
-            <div className='eachCopy-writer'>writer</div>
+            <div className='eachCopy-content'>{content}</div>
+            <div className='eachCopy-category'>{category}</div>
+            <div className='eachCopy-title'>{title}</div>
+            <div className='eachCopy-writer'>{writer}</div>
         </div>
     )
 }

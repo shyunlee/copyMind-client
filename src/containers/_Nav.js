@@ -1,7 +1,8 @@
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {Nav} from '../components'
-import {actionListupCopies, actionGetUserInfo, URL} from '../actions'
+import {actionListupCopies, actionGetUserInfo, actionLogout, URL} from '../actions'
 
 axios.defaults.withCredentials=true;
 
@@ -19,14 +20,14 @@ const mapDispatchToProps = (dispatch) => {
             axios.post(`${URL}/copy/getcopy`,{pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
                 console.log(res)
-                dispatch(actionListupCopies(res.result))
+                dispatch(actionListupCopies(res.data.result))
             })
         },
 
         getUserInfo: () => {
             axios.get(`${URL}/user/userinfo`)
             .then(res => {
-                console.log(res)
+                console.log('Nav-getUserInfo', res)
                 dispatch(actionGetUserInfo(res))
             })
         },
@@ -34,23 +35,27 @@ const mapDispatchToProps = (dispatch) => {
         getBookmarkList: () => {
             axios.get(`${URL}/user/bookmark`)
             .then(res => {
-                console.log(res)
-                dispatch(actionListupCopies(res.result))
+                console.log('Nav-getBookmarkList', res)
+                dispatch(actionListupCopies(res.data.result))
             })
         },
 
         getMyPostingList: () => {
             axios.get(`${URL}/user/myposting`)
             .then(res => {
-                console.log(res)
-                dispatch(actionListupCopies(res.result))
+                console.log('Nav-getMyPostingList',res)
+                dispatch(actionListupCopies(res.data.result))
             })
         },
 
         logoutHandler: () => {
             axios.post(`${URL}/sign/signout`)
             .then(res=> {
-                console.log(res)
+                console.log(res.data.message)
+                if (res.data.message === 'successfully log-out!') {
+                    console.log('work')
+                    dispatch(actionLogout(false))
+                }
             })
         }
     }
