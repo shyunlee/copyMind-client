@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
-import {PostCopy,Signup, MyProfile, Login } from './components'
-import {_Main, _ListCopy, _ViewCopy, _Nav} from './containers'
+import {PostCopy,Signup, Login } from './components'
+import {_Main, _ListCopy, _ViewCopy, _Nav, _MyProfile} from './containers'
 
 class App extends React.Component {
   state={
@@ -35,7 +35,7 @@ class App extends React.Component {
         <div className='main'>
           {
           this.state.isMyProfileOpen?
-          (<MyProfile modalClose={this.modalClose.bind(this)} />)
+          (<_MyProfile modalClose={this.modalClose.bind(this)} />)
           :
           (this.state.isLoginOpen?
             (<Login modalClose={this.modalClose.bind(this)} modalOpen={this.modalOpen.bind(this)}/>)
