@@ -14,7 +14,7 @@ const MyProfile = (props) => {
             <p>user name: {myProfile.userName}</p>
             <p>email : {myProfile.email}</p>
             <p>bookmarkCount: {myProfile.bookmarkCount}</p>
-            <p>postCount:{myProfile.postCount}</p>
+            <p>postCount:{myProfile.postingCount}</p>
             <input type="button" onClick={() => props.modalClose('myprofile')} value="Close"/>
         </div>
     );

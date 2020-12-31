@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {Nav} from '../components'
-import {actionListupCopies, actionGetUserInfo, actionLogout, URL} from '../actions'
+import {actionListupCopies, actionGetUserInfo, actionLogout, URI} from '../actions'
 
 axios.defaults.withCredentials=true;
 
@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getCopyList:(pathName) => {
-            axios.post(`${URL}/copy/getcopy`,{pathName}, {headers:{'Content-Type':'application/json'}})
+            axios.post(`${URI}/copy/getcopy`,{pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
                 console.log(res)
                 dispatch(actionListupCopies(res.data.result))
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         getUserInfo: () => {
-            axios.get(`${URL}/user/userinfo`)
+            axios.get(`${URI}/user/userinfo`)
             .then(res => {
                 console.log('Nav-getUserInfo', res.data)
                 dispatch(actionGetUserInfo(res.data))
@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         getBookmarkList: () => {
-            axios.get(`${URL}/user/bookmark`)
+            axios.get(`${URI}/user/bookmark`)
             .then(res => {
                 console.log('Nav-getBookmarkList', res)
                 dispatch(actionListupCopies(res.data.result))
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         getMyPostingList: () => {
-            axios.get(`${URL}/user/myposting`)
+            axios.get(`${URI}/user/myposting`)
             .then(res => {
                 console.log('Nav-getMyPostingList',res)
                 dispatch(actionListupCopies(res.data.result))
@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         logoutHandler: () => {
-            axios.post(`${URL}/sign/signout`)
+            axios.post(`${URI}/sign/signout`)
             .then(res=> {
                 if (res.data.message === 'successfully log-out!') {
                     dispatch(actionLogout(false))

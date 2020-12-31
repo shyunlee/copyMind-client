@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDetectOutsideClick} from '../useDetectOutsideClick'
 import './style/signup.css'
-import {URL} from '../actions'
+import {URI} from '../actions'
 import axios from 'axios'
 axios.defaults.withCredentials=true;
 
@@ -10,7 +10,7 @@ const Signup = (props) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [checkPW, setCheckPW] = useState('')
-    const [errorMessage, setErrorMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('대/소문자,숫자,특수문자(!@#$%^&+=) 형식인 8 ~ 15자리를 입력')
 
     const handleChange = (target) => {
         if (target.name === 'email') setEmail(target.value)
@@ -30,9 +30,9 @@ const Signup = (props) => {
         // }else if(!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email)){
         //     setErrorMessage("이메일 형식이 아닙니다.")
         // }else if(!/^.*(?=^.{8,15}$)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&+=]).*$/.test(password)){
-        //     setErrorMessage("비밀번호 형식이 아닙니다.")
+        //     setErrorMessage("대문자, 소문자, 특수문자, 숫자형식이 하나이상 들어가야 합니다. 비밀번호가 8 - 15 여야 합니다.")
         // } else{
-            axios.post(`${URL}/sign/signup`,{email, userName, password},{headers:{'Content-Type':'application/json'}})
+            axios.post(`${URI}/sign/signup`,{email, userName, password},{headers:{'Content-Type':'application/json'}})
             .then(res => {
                 console.log(res)
                 if (res.data.message === 'signup success!') {
@@ -41,7 +41,15 @@ const Signup = (props) => {
                     props.modalOpen('login')
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                if(err.response.data.message === 'not exist'){
+                    setErrorMessage('사용자가 존재합니다.')
+                }else if(err.response.data.message === ''){
+                    setErrorMessage('이메일이 존재합니다.')
+                }else {
+                    setErrorMessage('서버와 연결이 끊겼습니다.')
+                }
+            })
         // }
     }
 
@@ -50,6 +58,7 @@ const Signup = (props) => {
 
     return (
         <div ref={signupModalRef}>
+            
             <input id="signup_email" type="email" placeholder="Email" name="email" onChange={(e) => handleChange(e.target)}/>
 
             <input id="signup_username" type="text" placeholder="User Name" name="userName" onChange={(e) => handleChange(e.target)}/> 
@@ -60,6 +69,8 @@ const Signup = (props) => {
 
             <button id="signup_button" onClick={signupHandle}>Signup</button>
             {errorMessage?<div className="alert-box">{errorMessage}</div>:null}
+
+            <button onClick={()=>{props.modalClose('signup')}}>Close</button>
         </div>
     )
 };

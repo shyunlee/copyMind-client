@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
 import './style/postCopy.css'
-import {actionGetRandomCopy, URL} from '../actions'
+import {actionGetRandomCopy, URI} from '../actions'
 import axios from 'axios'
 axios.defaults.withCredentials=true;
 
@@ -28,7 +28,7 @@ const PostCopy = ({history}) => {
 
     const handleClickPost = () => {
         let postData = {content, title, writer, category}
-        axios.post(`${URL}/copy/postcopy`,postData, {headers:{'Content-Type':'application/json'}})
+        axios.post(`${URI}/copy/postcopy`,postData, {headers:{'Content-Type':'application/json'}})
         .then(res => {
             console.log(res)
             if (res.statusText === 'OK') {

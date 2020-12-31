@@ -51,6 +51,7 @@ function List(props){
                         <h2>
                             <div>{title}</div>
                             <div>{writer}</div>
+                            <div>{likeCount}</div>
                         </h2>
                     </div>
                 </figcaption>
