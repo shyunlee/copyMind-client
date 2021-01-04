@@ -48,30 +48,32 @@ class App extends React.Component {
     let menuPath = this.state.menu.map(el => '/'.concat(el.toLowerCase()))
  
     return (
-      <div>
-        <div className='header'>
-          <_Nav menu={this.state.menu} modalOpen={this.modalOpen.bind(this)} modalClose={this.modalClose.bind(this)} />
-        </div>
-        <div className='main'>
-          {
-          this.state.isMyProfileOpen?
-          (<_MyProfile modalClose={this.modalClose.bind(this)} />)
-          :
-          (this.state.isLoginOpen?
-            (<Login modalClose={this.modalClose.bind(this)} modalOpen={this.modalOpen.bind(this)}/>)
-            :(this.state.isSignupOpen?
-            (<Signup modalClose={this.modalClose.bind(this)} modalOpen={this.modalOpen.bind(this)}/>)
+      <div className="app">
+        <div className='view-main'>
+          <div className='header'>
+            <_Nav menu={this.state.menu} modalOpen={this.modalOpen.bind(this)} modalClose={this.modalClose.bind(this)} />
+          </div>
+          <div className='main'>
+            {
+            this.state.isMyProfileOpen?
+            (<_MyProfile modalClose={this.modalClose.bind(this)} />)
             :
-            <Switch>
-              <Route path={menuPath.concat('/myposting', '/bookmark')} component={_ListCopy} />
-              <Route path='/view' component={_ViewCopy}/>
-              <Route path='/post' component={PostCopy} history={this.props.history}/>
-              <Route path='/' component={_Main} />
-            </Switch>))
-          }
-        </div>
-        <div className='footer'>
-          
+            (this.state.isLoginOpen?
+              (<Login modalClose={this.modalClose.bind(this)} modalOpen={this.modalOpen.bind(this)}/>)
+              :(this.state.isSignupOpen?
+              (<Signup modalClose={this.modalClose.bind(this)} modalOpen={this.modalOpen.bind(this)}/>)
+              :
+              <Switch>
+                <Route path={menuPath.concat('/myposting', '/bookmark')} component={_ListCopy} />
+                <Route path='/view' component={_ViewCopy}/>
+                <Route path='/post' component={PostCopy} history={this.props.history}/>
+                <Route path='/' component={_Main} />
+              </Switch>))
+            }
+          </div>
+          <div className='footer'>
+            
+          </div>
         </div>
       </div>
     );

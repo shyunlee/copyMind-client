@@ -1,21 +1,95 @@
-.view-copy {
-    border:1px solid black;
-    width:50%;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+.view-box{
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    display: inline-block;
     height:90%;
-    display:flex;
-    flex-flow:column;
+    width:30%;
+}
+
+.view-copy-box {
+    border: 3px solid #969382;
+    background-color: whitesmoke;
+    box-shadow: 3px 3px 3px #44433B;
+    position: relative;
+    border-radius: 30px;
+    height:95%;
+    font-family: "Nanum Myeongjo", serif;
     justify-content: space-evenly;
+    text-align: center;
+    overflow: hidden;
+}
+
+.view-title-likeCount-box {
+    padding-top:5%;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+.view-title {
+    margin-right: 5%;
+    margin-left: 5%;
+    border-bottom: 2px solid rgba(0, 0, 0,0.4);
+    margin-bottom: 2%;
+    padding-bottom: 2.5%;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+.view-writer {
+    padding-bottom: 2.5%;
+    font-family: "Nanum Myeongjo", serif;
+    text-align: right;
 }
 
 .view-content {
-    border:1px solid grey;
-    margin:10px;
-    height:85%;
+    line-height: 1.7;
+    font-family: "Nanum Myeongjo", serif;
+    margin-top : 1%;
+    margin-left : 2%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    word-wrap : break-word;
+    overflow : auto;
+    height: 430px;
 }
 
-.view-btn {
-    border:1px solid blue;
-    margin:10px;
-    display:flex;
+.view-btn-box {
+    margin: 0%;
+    padding-top: 3%;
+    border-radius: 10%;
     justify-content: space-evenly;
+    display: flex;
 }
+
+.view-heart {
+    padding-right: 5%;
+}
+
+.view-category {
+    padding-bottom: 1.5%;
+    font-family: "Nanum Myeongjo", serif;
+    text-align: right;
+}
+
+/* .btn {
+    font-family: "Nanum Myeongjo", serif;
+    border : 1px solid rgba(41, 41, 41, 0.3);
+    width: 140px;
+    height: 40px;
+    transition: all 0.1s ease-in 0s;
+    background-color: transparent;
+    border-radius: 50px;
+    text-align:center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0,0.1);
+} */
+
+/* .btn:hover{
+    background-color: #212020;
+    box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+    color: #fff;
+} */

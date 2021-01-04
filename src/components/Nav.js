@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import axios from 'axios'
 import {URI} from '../actions'
 import './style/nav.css'
@@ -55,34 +55,36 @@ class Nav extends Component {
         return (
             <nav className="navbar">
                 <div className="navbar-logo">
-                    <Link to='/'>CopyMind</Link>
+                    <NavLink activeClassName = "logo" to='/'>CopyMind</NavLink>
                 </div>
-                < ul className="navbar-menu">
-                    {this.props.menu.map(el => {
-                        let lowerLetter = el.toLowerCase()
-                        this.count++
-                        return (
-                            <li key={this.count}>
-                                <Link to={lowerLetter} onClick={() => {this.props.getCopyList(lowerLetter)}}>{el}</Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-                <div className='navbar-controller'>
-                    {this.props.isLogin
-                    ?
-                    <NavMyPage
-                        toggleChange={this.toggleChange.bind(this)}
-                        isToggleOn={this.state.isToggleOn}
-                        getUserInfo={this.props.getUserInfo}
-                        getBookmarkList={this.props.getBookmarkList}
-                        getMyPostingList={this.props.getMyPostingList}
-                        logoutHandler={this.props.logoutHandler}
-                        modalOpen={this.props.modalOpen}
-                    />
-                    :
-                    <NavLogin modalOpen={this.props.modalOpen}/>
-                    }
+                <div className="navbar-menu-container">
+                    < ul className="navbar-menu">
+                        {this.props.menu.map(el => {
+                            let lowerLetter = el.toLowerCase()
+                            this.count++
+                            return (
+                                <li key={this.count}>
+                                    <NavLink to={lowerLetter} onClick={() => {this.props.getCopyList(lowerLetter)}}>{el}</NavLink>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                    <div className='navbar-controller'>
+                        {this.props.isLogin
+                        ?
+                        <NavMyPage
+                            toggleChange={this.toggleChange.bind(this)}
+                            isToggleOn={this.state.isToggleOn}
+                            getUserInfo={this.props.getUserInfo}
+                            getBookmarkList={this.props.getBookmarkList}
+                            getMyPostingList={this.props.getMyPostingList}
+                            logoutHandler={this.props.logoutHandler}
+                            modalOpen={this.props.modalOpen}
+                        />
+                        :
+                        <NavLogin modalOpen={this.props.modalOpen}/>
+                        }
+                    </div>
                 </div>
             </nav>
         );
@@ -92,8 +94,8 @@ class Nav extends Component {
 function NavLogin (props) {
     return (
         <ul className='nav-login'>
-            <li><Link to="#" onClick={() => {props.modalOpen('login')}}>Login</Link></li>
-            <li><Link to="#" onClick={() => {props.modalOpen('signup')}}>Signup</Link></li>
+            <li><NavLink activeClassName='login' to="#" onClick={() => {props.modalOpen('login')}}>Login</NavLink></li>
+            <li><NavLink activeClassName='signup' to="#" onClick={() => {props.modalOpen('signup')}}>Signup</NavLink></li>
         </ul>
     )
 }
@@ -101,7 +103,7 @@ function NavLogin (props) {
 function NavMyPage (props) {
     return (
         <div className='mypage-control'>
-            <Link to="#"  onClick={props.toggleChange}>My Page</Link>
+            <NavLink activeClassName='mypage' to="#"  onClick={props.toggleChange}>My Page</NavLink>
             {/* <div className={props.isToggleOn?'mypage active':'mypage'}> */}
             <div className='mypage-hover'>
                 <ul className='mypage-list'>

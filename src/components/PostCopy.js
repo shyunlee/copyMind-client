@@ -14,16 +14,11 @@ const PostCopy = ({history}) => {
     const dispatch = useDispatch()
 
     const handleChange = (target) => {
-        switch(target.name) {
-            case 'content' :
-                setContent(target.value)
-            case 'title':
-                setTitle(target.value)
-            case 'writer':
-                setWriter(target.value)
-            case 'category':
-                setCategory(target.value)
-        }
+        console.log(target.name, target.value)
+        if (target.name === 'content') setContent(target.value)
+        else if (target.name === 'title') setTitle(target.value)
+        else if (target.name === 'writer') setWriter(target.value)
+        else if (target.name === 'category') setCategory(target.value)
     }
 
     const handleClickPost = () => {
@@ -39,30 +34,28 @@ const PostCopy = ({history}) => {
     }
 
     return (
-        <div className='post-copy'>
-            <div className='post-content'>
-                <textarea name="content" id="" cols='50' rows="30" onChange={(e) => {handleChange(e.target)}}></textarea>
+        <div className='post-box'>
+            <div className='post-copy-box'>
+                <input className='post-title' autoComplete="off" name='title' type='text' placeholder='제목을 입력하세요'  onChange={(e) => {handleChange(e.target)}}/>
+                <div className="post-writer-category-box">
+                    <input className='post-writer' autoComplete="off" name='writer' type="text" placeholder='저자' onChange={(e) => {handleChange(e.target)}}/>
+                    <div className="post-righter-box">
+                        <select className="post-category" name='category' onChange={(e) => {handleChange(e.target)}}>
+                            <option value="">--Category--</option>
+                            <option value="novel">Novel</option>
+                            <option value="poem">Poem</option>
+                            <option value="quotes">Quotes</option>
+                            <option value="essay">Essay</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea className="post-content" autoComplete="off" name="content" placeholder="당신의 마음을 담아보세요." onChange={(e) => {handleChange(e.target)}}></textarea>
             </div>
-            <div className='post-control'>
-                <div className='post-option'>
-                    <input name='title' type="text" placeholder='Book Title'  onChange={(e) => {handleChange(e.target)}}/>
-                    <input name='writer' type="text" placeholder='Writer' onChange={(e) => {handleChange(e.target)}}/>
-                    <select name="category" id="" onChange={(e) => {handleChange(e.target)}}>
-                        <option value="">--none--</option>
-                        <option value="novel">Novel</option>
-                        <option value="poem">Poem</option>
-                        <option value="quotes">Quotes</option>
-                        <option value="essay">Essay</option>
-                    </select>
-                </div>
-                <div className='post-btn'>
-                    <input type="button" value='Post' onClick={handleClickPost}/>
-                </div>
+            <div className='post-control-box'>
+                <input className='post-btn' type="button" value='Post Mind' onClick={handleClickPost}/>
             </div>
         </div>
     );
 };
-
-
 
 export default PostCopy;

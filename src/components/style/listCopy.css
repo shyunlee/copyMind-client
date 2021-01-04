@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+
 .copy-list {
   overflow:auto;
   height:75vh;
@@ -24,6 +26,7 @@
   height:100%;
   width: 100%;
   background: #000000;
+  font-family: "Nanum Myeongjo", serif;
   /* color: #ffffff; */
   color:whitesmoke;
   /* color:#1c1f24; */
@@ -133,6 +136,6 @@
   transition-delay: 0.35s;
 }
 
-.fa {
+.fa-heart {
   color:red;
 }

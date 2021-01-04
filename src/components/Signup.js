@@ -10,7 +10,7 @@ const Signup = (props) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [checkPW, setCheckPW] = useState('')
-    const [errorMessage, setErrorMessage] = useState('대/소문자,숫자,특수문자(!@#$%^&+=) 형식인 8 ~ 15자리를 입력')
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleChange = (target) => {
         if (target.name === 'email') setEmail(target.value)
@@ -69,7 +69,7 @@ const Signup = (props) => {
                 <input id="signup_confirmPW" type="password" placeholder="Confirm Password" name="checkPW" onChange={(e) => handleChange(e.target)}/>
 
                 <button id="signup-click" onClick={signupHandle}>Signup</button>
-                {errorMessage?<div className="alert-box">{errorMessage}</div>:null}
+                {errorMessage.length?<div className="alert-box">{errorMessage}</div>:<div className="pwAlert">비밀번호는 대/소문자,숫자,특수문자 형식인 8 ~ 15자리 입력</div>}
             </div>
         </div>
     )

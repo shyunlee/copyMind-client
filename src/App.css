@@ -1,24 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+
 body {
   margin:0;
-  background-color: azure;
+  background-color: #fcfbf2;
 }
 
 .header {
-  border: 1px solid gainsboro;
   height:10vh;
 }
 
 .main {
-  border: 1px solid wheat;
   height: 80vh;
-  /* margin:50px 0; */
   display:flex;
   justify-content: center;
   align-items:center;
 }
 
 .footer {
-  border: 1px solid cornsilk;
   height: 10vh;
 }
 
@@ -26,4 +27,151 @@ body {
   border: 1px solid black;
   width:500px;
   height:500px;
+}
+
+.view-main {
+  flex: 20 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.copyMindDescriptonTitle {
+  display: flex;
+  margin: 20px;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+.copyMindDescriptonContent {
+  width: 50%;
+  height: 50%;
+  display: flex;
+
+  /* font-family: "Poor Story", cursive; */
+  font-family: "Nanum Myeongjo", serif;
+  /* font-family: "Hi Melody", cursive; */
+  font-size: 20px;
+  line-height: 50px;
+  padding: 20px;
+}
+.registerPlease {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  line-height: 50px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  flex: 1;
+  width: 210px;
+  height: 50px;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+  color: #000;
+  background-color: #e7e4cd;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin: 20px;
+}
+
+.btn:link {
+  color: black;
+}
+.btn:visited {
+  color: black;
+}
+.btn:hover {
+  background-color: #cecab2;
+  box-shadow: 0px 15px 20px rgba(124, 120, 86, 0.4);
+  color: black;
+  /* transform: translateY(-7px); */
+}
+.registerPlease {
+  font-size: 20px;
+}
+.btn-view {
+  display: flex;
+}
+.myprofile {
+  margin: 20px;
+  border-radius: 40px 40px 40px 40px;
+  border: 3px solid #969382;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 3px #44433b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: bold;
+  font-size: 50px;
+  color: #77695a;
+}
+.userName {
+  display: flex;
+  margin: 20px;
+  font-size: 20px;
+}
+.email {
+  display: flex;
+  margin: 20px;
+  font-size: 20px;
+}
+.bookmarkCount {
+  display: flex;
+  margin: 20px;
+  font-size: 20px;
+}
+.postCount {
+  display: flex;
+  margin: 20px;
+  font-size: 20px;
+}
+.close {
+  /* display: flex;
+  flex-direction: flex-end; */
+  width: 140px;
+  height: 30px;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+  color: #000;
+  background-color: #e7e4cd;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin: 20px;
+}
+
+.close:link {
+  color: black;
+}
+.close:visited {
+  color: black;
+}
+.close:hover {
+  background-color: #cecab2;
+  box-shadow: 0px 15px 20px rgba(124, 120, 86, 0.4);
+  color: black;
+  /* transform: translateY(-7px); */
 }
