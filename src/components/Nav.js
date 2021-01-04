@@ -57,7 +57,7 @@ class Nav extends Component {
                 <div className="navbar-logo">
                     <NavLink activeClassName = "logo" to='/'>CopyMind</NavLink>
                 </div>
-                <div className="navbar-menu-container">
+                {/* <div className="navbar-menu-container"> */}
                     < ul className="navbar-menu">
                         {this.props.menu.map(el => {
                             let lowerLetter = el.toLowerCase()
@@ -85,7 +85,7 @@ class Nav extends Component {
                         <NavLogin modalOpen={this.props.modalOpen}/>
                         }
                     </div>
-                </div>
+                {/* </div> */}
             </nav>
         );
     }

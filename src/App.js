@@ -49,7 +49,6 @@ class App extends React.Component {
  
     return (
       <div className="app">
-        <div className='view-main'>
           <div className='header'>
             <_Nav menu={this.state.menu} modalOpen={this.modalOpen.bind(this)} modalClose={this.modalClose.bind(this)} />
           </div>
@@ -74,7 +73,6 @@ class App extends React.Component {
           <div className='footer'>
             
           </div>
-        </div>
       </div>
     );
   } 

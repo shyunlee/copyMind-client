@@ -34,14 +34,17 @@
 	/* display: flex;
 	position: fixed; */
   }
-  .navbar-menu-container {
+  /* .navbar-menu-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-  }
+  } */
   .navbar-menu {
 	position: fixed;
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
 	justify-content: center;
 	right: 470px;
 	padding-left: 0;
