@@ -1,84 +1,58 @@
 import React, { Component } from 'react';
+import img1 from '../images/each-copy_1.jpg'
+import img2 from '../images/each-copy_2.jpg'
+import img3 from '../images/each-copy_3.jpg'
+import img4 from '../images/each-copy_4.jpg'
+import img5 from '../images/each-copy_5.jpg'
+import img6 from '../images/each-copy_6.jpg'
+import img7 from '../images/each-copy_7.jpg'
 import './style/listCopy.css'
-
-function List(props){
-    const urls ={
-        "sq-sample27":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg",
-        "sq-sample31":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample31.jpg",
-        "sq-sample32":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample32.jpg",
-        "sample45":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample45.jpg",
-        "sample77":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample77.jpg",
-        "sample99":"https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample99.jpg",        
-    }
-
-    const {content, title, writer, category, likeCount} = props.data
-    
-    const random = (urls) => {
-        const randomValue = Math.floor(Math.random()*10) % 6;
-        const key = Object.keys(urls)[randomValue]
-        const value = urls[key]
-        return {keyAlt : key, valueSrc : value}
-    }
-
-    const {keyAlt, valueSrc} = random(urls)
-
-    let count = content.length / 20
-    const increaseValue = 20;
-    let startValue = 0;
-    let endValue = increaseValue;
-    let line = ""
-    for(let i = 0; i < count; i++){
-        line += `${content.slice(startValue, endValue)}\n`
-        startValue += increaseValue
-        endValue += increaseValue
-    }
-
-    return (  
-        <div className="posting" onClick={() => {
-            props.sendCopyToState(props.data)
-            props.history.push('/view')
-        }}>
-            <figure className="snip1200">
-                <img
-                    src={valueSrc}
-                    alt={keyAlt} width="200vw"
-                />
-                <figcaption>
-                    <p>
-                        {line}
-                    </p>
-                    <div className="heading">
-                        <h2>
-                            <div>{title}</div>
-                            <div>{writer}</div>
-                            <div>{likeCount}</div>
-                        </h2>
-                    </div>
-                </figcaption>
-            </figure>
-        </div>
-    )
-}
-
 
 class ListCopy extends Component {
     constructor (props) {
         super(props)
+
         this.count=0
     }
-
+    
     render() {
         return (
-            <div className="listPosting">
-                {this.props.contentsList.map( el => {
+            <div className='copy-list'>
+                {this.props.contentsList.map(el => {
                     this.count++
-                   return  (<List key={this.count} data={el} history={this.props.history} sendCopyToState={this.props.sendCopyToState} />)
+                    return (<EachCopy key={this.count} copy={el} history={this.props.history} sendCopyToState={this.props.sendCopyToState}/>)
                 })}
             </div>
         );
     }
 }
 
-
+function EachCopy (props) {
+    function getRandom(min, max) {
+        return Math.floor((Math.random() * (max-min+1)) + min)
+    }
+    let backImg = [img1, img2, img3, img4, img5, img6, img7]
+    let {content, title, writer, category, likeCount} = props.copy
+    content = content.slice(0, 100).concat('...')
+    return (
+        <div className='eachCopy' onClick={() => {
+            props.sendCopyToState(props.copy)
+            props.history.push('/view')
+        }}>
+            <div className='eachCopy-container'>
+                <img src={backImg[getRandom(0,6)]} width="100%"/>
+                <div className='eachCopy-content'>
+                    <p>{content}</p>   
+                    <div className='eachCopy-info'>
+                        <h2 className='info-title'>{title}</h2>
+                        <h2 className='info-writer'>{writer}</h2>
+                        <h2 className='info-likeCount'>{likeCount} <i className="fa fa-heart"></i></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 export default ListCopy;
+

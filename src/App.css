@@ -11,6 +11,7 @@ body {
 .main {
   border: 1px solid wheat;
   height: 80vh;
+  /* margin:50px 0; */
   display:flex;
   justify-content: center;
   align-items:center;

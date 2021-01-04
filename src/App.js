@@ -1,8 +1,6 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom'
 import './App.css';
-import {URI} from './actions'
-import axios from 'axios'
 import {PostCopy,Signup, Login } from './components'
 import {_Main, _ListCopy, _ViewCopy, _Nav, _MyProfile} from './containers'
 
@@ -14,24 +12,24 @@ class App extends React.Component {
     isSignupOpen:false
   }
 
-  async getAccessToken(authorizationCode){
-    await axios.post(`${URI}/oauth/github`,{authorizationCode:authorizationCode},{withCredentials:true})
-    .then(result =>{
-      console.log(result)
-      if(result.data.message === 'ok'){
-        this.modalClose('login')
-      }
-    })
-  }
+  // async getAccessToken(authorizationCode){
+  //   await axios.post(`${URI}/oauth/github`,{authorizationCode:authorizationCode},{withCredentials:true})
+  //   .then(result =>{
+  //     console.log(result)
+  //     if(result.data.message === 'ok'){
+  //       this.modalClose('login')
+  //     }
+  //   })
+  // }
 
-  componentDidMount(){
-    const url = new URL(window.location.href)
-    const authorizationCode = url.searchParams.get('code')
-    if (authorizationCode) {
-      console.log('authorizationCode')
-      this.getAccessToken(authorizationCode)
-    }
-  }
+  // componentDidMount(){
+  //   const url = new URL(window.location.href)
+  //   const authorizationCode = url.searchParams.get('code')
+  //   if (authorizationCode) {
+  //     console.log('authorizationCode')
+  //     this.getAccessToken(authorizationCode)
+  //   }
+  // }
 
   modalOpen (value) {
     if (value === 'login') this.setState({isLoginOpen:true, isSignupOpen:false})
@@ -52,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <div className='header'>
-          <_Nav menu={this.state.menu} modalOpen={this.modalOpen.bind(this)} />
+          <_Nav menu={this.state.menu} modalOpen={this.modalOpen.bind(this)} modalClose={this.modalClose.bind(this)} />
         </div>
         <div className='main'>
           {

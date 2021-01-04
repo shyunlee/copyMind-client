@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {Nav} from '../components'
-import {actionListupCopies, actionGetUserInfo, actionLogout, URI} from '../actions'
+import {actionListupCopies, actionGetUserInfo, actionLogin, actionLogout, URI} from '../actions'
 
 axios.defaults.withCredentials=true;
 
@@ -55,6 +55,10 @@ const mapDispatchToProps = (dispatch) => {
                     dispatch(actionLogout(false))
                 }
             })
+        },
+
+        oauthLogin: () => {
+            dispatch(actionLogin(true))
         }
     }
 }

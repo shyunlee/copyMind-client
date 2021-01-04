@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+import {URI} from '../actions'
 import './style/nav.css'
 
 
@@ -12,6 +14,38 @@ class Nav extends Component {
 
         this.count=0;
     }
+
+    async getAccessToken (authorizationCode) {
+        if(authorizationCode.length === 20){
+            console.log(authorizationCode)
+          await axios.post(`${URI}/oauth/github`,{authorizationCode:authorizationCode},{withCredentials:true})
+          .then(result =>{
+              console.log('github response', result)
+          if(result.data.message === 'ok'){
+            this.props.oauthLogin(true)
+            // this.modalClose('login')
+            }
+          })
+        }else {
+          await axios.post(`${URI}/oauth/google`,{authorizationCode:authorizationCode},{withCredentials:true})
+          .then(result =>{
+            console.log(result)
+          if(result.data.message === 'ok'){
+            this.props.oauthLogin(true)
+            // this.modalClose('login')
+            }
+          })
+        }
+      }
+    
+      componentDidMount(){
+        const url = new URL(window.location.href)
+        const authorizationCode = url.searchParams.get('code')
+        if (authorizationCode) {
+          console.log(authorizationCode)
+          this.getAccessToken(authorizationCode)
+        }
+      }
 
     toggleChange () {
         this.setState({isToggleOn:!this.state.isToggleOn})
