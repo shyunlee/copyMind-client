@@ -33,7 +33,10 @@ class ViewCopy extends Component {
 
     render() {
         const {category, content, title, writer, likeCount, id} = this.props.viewCopy
-        let isLikeOn = this.props.bookmarkList.includes(id)?true:false
+        let isLikeOn = false
+        if (id) {
+            isLikeOn = this.props.bookmarkList.includes(id)?true:false
+        }
         return (
             <div className='view-box'>
             <div className='view-copy-box'>
