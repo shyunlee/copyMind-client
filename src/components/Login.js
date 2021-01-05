@@ -3,7 +3,7 @@ import './style/login.css'
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
-import {URI, actionLogin} from '../actions'
+import {URI, actionLogin, updateBookmarkList} from '../actions'
 import axios from 'axios'
 import {useDetectOutsideClick} from '../useDetectOutsideClick'
 import googleLogo from '../images/btn_google_signin_dark_normal_web.png'
@@ -33,6 +33,7 @@ export default function Login(props)  {
             .then(res =>{ 
                 if(res.data.message === 'ok'){
                     dispatch(actionLogin(true))
+                    dispatch(updateBookmarkList(res.data.bookmarkList))
                     props.modalClose('login')
                     history.push('/')
                 }
@@ -57,7 +58,7 @@ export default function Login(props)  {
 
         const onGoogleClick = () => {
             const GOOGLE_LOGIN_URL =
-            `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=882123656556-4ngn8uqd2jhummvjl92ioq0a011dsmom.apps.googleusercontent.com&scope=openid%20email%20profile&redirect_uri=http://localhost:3000`
+            `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=882123656556-4ngn8uqd2jhummvjl92ioq0a011dsmom.apps.googleusercontent.com&scope=openid%20email%20profile&redirect_uri=http://copymind.ga:8080`
             window.location.assign(GOOGLE_LOGIN_URL)
         }
 
@@ -68,7 +69,7 @@ export default function Login(props)  {
         return(
             <div id="loginInfo-background">
             <div id="loginInfo-border" ref={loginModalRef}>
-                <div className="close">
+                <div className="loginClose">
                     <button className="modalClose" onClick={() => {props.modalClose('login')}}>X</button>
                 </div>
                 <div id="input">
@@ -92,10 +93,10 @@ export default function Login(props)  {
                     </div>
                     
                     <div id="oauth-button">
-                        <img src={googleLogo} className="btn google-button" onClick={() =>{onGoogleClick()}}/>
-                        <a className="btn github-button" onClick={ ()=>{githubOnClick()}}>
+                        <img src={googleLogo} className="btn google-button" alt='google oAuth logo' onClick={() =>{onGoogleClick()}}/>
+                        <button className="btn github-button" onClick={ ()=>{githubOnClick()}}>
                         <i className="fa fa-github"></i> Sign in with Github
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

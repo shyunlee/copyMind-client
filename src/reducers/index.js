@@ -3,13 +3,15 @@ import viewCopyReducer from './viewCopyReducer'
 import loginReducer from './loginReducer'
 import listCopyReducer from './listCopyReducer'
 import myProfileReducer from './myProfileReducer'
+import bookmarkListReducer from './bookmarkListReducer'
 
 
 export default combineReducers({
     viewCopyReducer,
     loginReducer,
     listCopyReducer,
-    myProfileReducer
+    myProfileReducer,
+    bookmarkListReducer
 })
 
 

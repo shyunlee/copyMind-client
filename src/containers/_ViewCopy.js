@@ -1,13 +1,14 @@
 import {ViewCopy} from '../components'
 import {connect} from 'react-redux'
-import {actionGetRandomCopy, updateLikeCount, URI} from '../actions'
+import {actionGetRandomCopy, updateLikeCount, updateBookmarkList, URI} from '../actions'
 import axios from 'axios'
 axios.defaults.withCredentials=true;
 
 const mapStateToProps = (state) => {
     return {
         isLogin:state.loginReducer.isLogin,
-        viewCopy:state.viewCopyReducer.viewCopy
+        viewCopy:state.viewCopyReducer.viewCopy,
+        bookmarkList:state.bookmarkListReducer.bookmarkList
     }
 } 
 
@@ -16,13 +17,16 @@ const mapDispatchToProps = (dispatch) => {
         getRandomCopy:(pathName) => {
             axios.post(`${URI}/copy/getcopy`, {pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
-                console.log(res)
                 dispatch(actionGetRandomCopy(res.data.result[0]))
             })
         },
 
         updateLikeCount: (count) => {
             dispatch(updateLikeCount(count))
+        },
+
+        updateBookmarkList: (bookmarkList) => {
+            dispatch(updateBookmarkList(bookmarkList))
         }
     }
 }

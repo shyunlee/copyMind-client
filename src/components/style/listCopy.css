@@ -27,6 +27,7 @@
   width: 100%;
   background: #000000;
   font-family: "Nanum Myeongjo", serif;
+  font-weight: bold;
   /* color: #ffffff; */
   color:whitesmoke;
   /* color:#1c1f24; */
@@ -136,6 +137,10 @@
   transition-delay: 0.35s;
 }
 
-.fa-heart {
+.fa-heart{
   color:red;
+}
+
+.inactive{
+  color:aliceblue
 }

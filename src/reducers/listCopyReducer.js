@@ -1,5 +1,4 @@
 import { LISTUP_COPIES } from '../actions'
-import fakeData from '../testData/fakeData.json'
 
 let initialState = {
     contentsList:[{title:'test', writer:'test', content:'content', likeCount:0, category:'test', id:0}]

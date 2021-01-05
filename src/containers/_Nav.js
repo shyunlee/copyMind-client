@@ -1,5 +1,4 @@
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import {Nav} from '../components'
 import {actionListupCopies, actionGetUserInfo, actionLogin, actionLogout, URI} from '../actions'
@@ -19,15 +18,14 @@ const mapDispatchToProps = (dispatch) => {
         getCopyList:(pathName) => {
             axios.post(`${URI}/copy/getcopy`,{pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
-                console.log(res)
                 dispatch(actionListupCopies(res.data.result))
             })
         },
-
+        
+//application/x-www-form-urlencoded
         getUserInfo: () => {
-            axios.get(`${URI}/user/userinfo`)
+            axios.get(`${URI}/user/userinfo`, {headers:{'Content-Type':'application/json'}})
             .then(res => {
-                console.log('Nav-getUserInfo', res.data)
                 dispatch(actionGetUserInfo(res.data))
             })
         },
@@ -35,7 +33,6 @@ const mapDispatchToProps = (dispatch) => {
         getBookmarkList: () => {
             axios.get(`${URI}/user/bookmark`)
             .then(res => {
-                console.log('Nav-getBookmarkList', res)
                 dispatch(actionListupCopies(res.data.result))
             })
         },
@@ -43,13 +40,12 @@ const mapDispatchToProps = (dispatch) => {
         getMyPostingList: () => {
             axios.get(`${URI}/user/myposting`)
             .then(res => {
-                console.log('Nav-getMyPostingList',res)
                 dispatch(actionListupCopies(res.data.result))
             })
         },
 
         logoutHandler: () => {
-            axios.post(`${URI}/sign/signout`)
+            axios.post(`${URI}/sign/signout`,{message: null}, {headers:{'Content-Type':'application/json'}})
             .then(res=> {
                 if (res.data.message === 'successfully log-out!') {
                     dispatch(actionLogout(false))

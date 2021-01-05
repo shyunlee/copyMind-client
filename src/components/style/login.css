@@ -43,7 +43,7 @@ aside {
 	z-index: 100;
 }
 
-.close {
+.loginClose {
 	display: flex;
 	justify-content: flex-end;
 }

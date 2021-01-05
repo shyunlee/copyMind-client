@@ -14,7 +14,6 @@ const PostCopy = ({history}) => {
     const dispatch = useDispatch()
 
     const handleChange = (target) => {
-        console.log(target.name, target.value)
         if (target.name === 'content') setContent(target.value)
         else if (target.name === 'title') setTitle(target.value)
         else if (target.name === 'writer') setWriter(target.value)
@@ -25,7 +24,6 @@ const PostCopy = ({history}) => {
         let postData = {content, title, writer, category}
         axios.post(`${URI}/copy/postcopy`,postData, {headers:{'Content-Type':'application/json'}})
         .then(res => {
-            console.log(res)
             if (res.statusText === 'OK') {
                 dispatch(actionGetRandomCopy(res.data.result[0]))
                 history.push('/view')
@@ -52,7 +50,7 @@ const PostCopy = ({history}) => {
                 <textarea className="post-content" autoComplete="off" name="content" placeholder="당신의 마음을 담아보세요." onChange={(e) => {handleChange(e.target)}}></textarea>
             </div>
             <div className='post-control-box'>
-                <input className='post-btn' type="button" value='Post Mind' onClick={handleClickPost}/>
+                <input className='btn' type="button" value='Post Mind' onClick={handleClickPost}/>
             </div>
         </div>
     );

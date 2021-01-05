@@ -9,6 +9,13 @@
     width:30%;
 }
 
+.view-heart-box {
+    width:50px;
+    float: right;
+    padding-right: 5%;
+    padding-top: 3%;
+}
+
 .view-copy-box {
     border: 3px solid #969382;
     background-color: whitesmoke;
@@ -23,6 +30,7 @@
 }
 
 .view-title-likeCount-box {
+    margin-top: 7%;
     padding-top:5%;
     padding-left:5%;
     padding-right:5%;
@@ -49,7 +57,7 @@
 .view-content {
     line-height: 1.7;
     font-family: "Nanum Myeongjo", serif;
-    margin-top : 1%;
+    margin-top : 2%;
     margin-left : 2%;
     margin-right: 5%;
     margin-bottom: 3%;

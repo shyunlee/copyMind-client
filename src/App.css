@@ -175,3 +175,7 @@ body {
   color: black;
   /* transform: translateY(-7px); */
 }
+
+.profile-userInfo {
+  font-family: "Nanum Myeongjo", serif;
+}

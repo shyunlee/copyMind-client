@@ -25,29 +25,27 @@ const Signup = (props) => {
             setErrorMessage("모든 항목은 필수입니다.")
         } else if (password !== checkPW) {
             setErrorMessage("비밀번호가 맞지않습니다.")
-        } else if (!/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email)) {
+        } else if (!/^[0-9a-zA-Z]([-_\]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email)) {
             setErrorMessage("이메일 형식이 아닙니다.")
         } else if (!/^.*(?=^.{8,15}$)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&+=]).*$/.test(password)) {
             setErrorMessage("대문자, 소문자, 특수문자, 숫자형식이 하나이상 들어가야 합니다. 비밀번호가 8 - 15 여야 합니다.")
         } else {
             axios.post(`${URI}/sign/signup`,{email, userName, password},{headers:{'Content-Type':'application/json'}})
             .then(res => {
-                console.log(res)
                 if (res.data.message === 'signup success!') {
-                    console.log('work')
                     props.modalClose('signup')
                     props.modalOpen('login')
                 }
             })
-            .catch(err => {
-                if (err.response.data.message === 'not exist') {
-                    setErrorMessage('사용자가 존재합니다.')
-                } else if(err.response.data.message === '') {
-                    setErrorMessage('이메일이 존재합니다.')
-                } else {
-                    setErrorMessage('서버와 연결이 끊겼습니다.')
-                }
-            })
+            // .catch(err => {
+            //     if (err.response.data.message === 'not exist') {
+            //         setErrorMessage('사용자가 존재합니다.')
+            //     } else if(err.response.data.message === '') {
+            //         setErrorMessage('이메일이 존재합니다.')
+            //     } else {
+            //         setErrorMessage('서버와 연결이 끊겼습니다.')
+            //     }
+            // })
         }
     }
 

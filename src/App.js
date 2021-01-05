@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import './App.css';
 import {PostCopy,Signup, Login } from './components'
 import {_Main, _ListCopy, _ViewCopy, _Nav, _MyProfile} from './containers'

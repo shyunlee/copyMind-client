@@ -17,10 +17,8 @@ class Nav extends Component {
 
     async getAccessToken (authorizationCode) {
         if(authorizationCode.length === 20){
-            console.log(authorizationCode)
           await axios.post(`${URI}/oauth/github`,{authorizationCode:authorizationCode},{withCredentials:true})
           .then(result =>{
-              console.log('github response', result)
           if(result.data.message === 'ok'){
             this.props.oauthLogin(true)
             // this.modalClose('login')
@@ -29,7 +27,6 @@ class Nav extends Component {
         }else {
           await axios.post(`${URI}/oauth/google`,{authorizationCode:authorizationCode},{withCredentials:true})
           .then(result =>{
-            console.log(result)
           if(result.data.message === 'ok'){
             this.props.oauthLogin(true)
             // this.modalClose('login')
@@ -42,7 +39,6 @@ class Nav extends Component {
         const url = new URL(window.location.href)
         const authorizationCode = url.searchParams.get('code')
         if (authorizationCode) {
-          console.log(authorizationCode)
           this.getAccessToken(authorizationCode)
         }
       }
@@ -57,7 +53,7 @@ class Nav extends Component {
                 <div className="navbar-logo">
                     <NavLink activeClassName = "logo" to='/'>CopyMind</NavLink>
                 </div>
-                {/* <div className="navbar-menu-container"> */}
+                <div className="navbar-menu-box">
                     < ul className="navbar-menu">
                         {this.props.menu.map(el => {
                             let lowerLetter = el.toLowerCase()
@@ -69,7 +65,8 @@ class Nav extends Component {
                             )
                         })}
                     </ul>
-                    <div className='navbar-controller'>
+                </div>
+                    <div className='navbar-menu-container'>
                         {this.props.isLogin
                         ?
                         <NavMyPage
@@ -85,7 +82,6 @@ class Nav extends Component {
                         <NavLogin modalOpen={this.props.modalOpen}/>
                         }
                     </div>
-                {/* </div> */}
             </nav>
         );
     }
@@ -94,15 +90,41 @@ class Nav extends Component {
 function NavLogin (props) {
     return (
         <ul className='nav-login'>
-            <li><NavLink activeClassName='login' to="#" onClick={() => {props.modalOpen('login')}}>Login</NavLink></li>
-            <li><NavLink activeClassName='signup' to="#" onClick={() => {props.modalOpen('signup')}}>Signup</NavLink></li>
+            <li className='nav-li'><NavLink activeClassName='login' to="#" onClick={() => {props.modalOpen('login')}}>Login</NavLink></li>
+            <li className='nav-li'><NavLink activeClassName='signup' to="#" onClick={() => {props.modalOpen('signup')}}>Signup</NavLink></li>
         </ul>
     )
 }
 
+// function NavMyPage (props) {
+//     return (
+//         <div className='mypage-control'>
+//             <NavLink activeClassName='mypage' to="#"  onClick={props.toggleChange}>My Page</NavLink>
+//             {/* <div className={props.isToggleOn?'mypage active':'mypage'}> */}
+//             <div className='mypage-hover'>
+//                 <ul className='mypage-list'>
+//                     <li><Link to='#' onClick={() => {
+//                         props.getUserInfo()
+//                         props.modalOpen('myprofile')
+//                     }}>My Profile</Link></li>
+//                     <li><Link to='/bookmark' onClick={() => {
+//                         props.getBookmarkList()
+//                     }}>Bookmark</Link></li>
+//                     <li><Link to='/myposting' onClick={() => {
+//                         props.getMyPostingList()
+//                     }}>My Posting</Link></li>
+//                     <li><Link to='/' onClick={() => {
+//                         props.logoutHandler()
+//                     }}>Logout</Link></li>
+//                 </ul>
+//             </div>
+//         </div>
+//     )
+// }
+
 function NavMyPage (props) {
     return (
-        <div className='mypage-control'>
+        <>
             <NavLink activeClassName='mypage' to="#"  onClick={props.toggleChange}>My Page</NavLink>
             {/* <div className={props.isToggleOn?'mypage active':'mypage'}> */}
             <div className='mypage-hover'>
@@ -122,7 +144,7 @@ function NavMyPage (props) {
                     }}>Logout</Link></li>
                 </ul>
             </div>
-        </div>
+        </>
     )
 }
 
