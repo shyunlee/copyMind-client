@@ -1,15 +1,14 @@
 .alert-box {
-    font-size: 0.3rem;
+    font-size: 0.7rem;
     color: red;
 }
 
 .pwAlert {
-    font-size: 0.3rem;
+    font-size: 0.7rem;
     color: rgb(148, 148, 148);
 }
 
 .signup-background {
-	background-color: azure;
 	height: 80vh;
 	display: flex;
 	flex-direction: column;
@@ -23,13 +22,13 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	height: 70vh;
+	height: 60vh;
 	border-radius: 15px;
 	background-color: #ffffff;
 	box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
 	z-index: 100;
     border: 1px solid black;
-    width: 27.6vw;
+    width: 25vw;
 }
 .signup-inputs input {
 	width: 15vw;

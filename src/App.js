@@ -3,15 +3,16 @@ import {Switch, Route} from 'react-router-dom'
 import './App.css';
 import {PostCopy,Signup, Login } from './components'
 import {_Main, _ListCopy, _ViewCopy, _Nav, _MyProfile} from './containers'
+import backImg2 from './images/img_1.png'
+import backImg1 from './images/img_2.png'
 
 class App extends React.Component {
   state={
     menu:['Novel', 'Essay', 'Quotes', 'Poem'],
     isMyProfileOpen:false,
     isLoginOpen:false,
-    isSignupOpen:false
+    isSignupOpen:false,
   }
-
   // async getAccessToken(authorizationCode){
   //   await axios.post(`${URI}/oauth/github`,{authorizationCode:authorizationCode},{withCredentials:true})
   //   .then(result =>{
@@ -69,9 +70,11 @@ class App extends React.Component {
                 <Route path='/' component={_Main} />
               </Switch>))
             }
+            <img class="back-img-1" src={backImg1} alt=""/>
+            <img class="back-img-2" src={backImg2} alt=""/>
           </div>
           <div className='footer'>
-            
+      
           </div>
       </div>
     );

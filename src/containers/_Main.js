@@ -14,11 +14,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getRandomCopy:(pathName) => {
+        getRandomCopy: (pathName) => {
             axios.post(`${URI}/copy/getcopy`, {pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
                 dispatch(actionGetRandomCopy(res.data.result[0]))
             })
+
         }
     }
 

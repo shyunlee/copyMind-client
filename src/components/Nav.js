@@ -3,6 +3,7 @@ import {NavLink, Link} from 'react-router-dom'
 import axios from 'axios'
 import {URI} from '../actions'
 import './style/nav.css'
+import Logo from '../images/copymind_logo.png'
 
 
 class Nav extends Component {
@@ -47,11 +48,17 @@ class Nav extends Component {
         this.setState({isToggleOn:!this.state.isToggleOn})
     }
 
+     async actionTest () {
+        console.log('action', await this.props.getCopyList('novel'))
+    }
+
     render() {
         return (
             <nav className="navbar">
                 <div className="navbar-logo">
-                    <NavLink activeClassName = "logo" to='/'>CopyMind</NavLink>
+                    <NavLink activeClassName = "logo" to='/'>
+                        <img class ="logo-img" src={Logo} alt="CopyMind Logo"/>
+                    </NavLink>
                 </div>
                 <div className="navbar-menu-box">
                     < ul className="navbar-menu">
@@ -60,7 +67,7 @@ class Nav extends Component {
                             this.count++
                             return (
                                 <li key={this.count}>
-                                    <NavLink to={lowerLetter} onClick={() => {this.props.getCopyList(lowerLetter)}}>{el}</NavLink>
+                                    <NavLink to={lowerLetter} onClick={() => {this.actionTest()}}>{el}</NavLink>
                                 </li>
                             )
                         })}

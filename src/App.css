@@ -13,14 +13,30 @@ body {
 }
 
 .main {
-  height: 80vh;
+  height: 90vh;
   display:flex;
   justify-content: center;
   align-items:center;
 }
 
+.back-img-1 {
+  width:20%;
+  position:absolute;
+  left:-1%;
+  bottom:0%;
+  overflow:hidden;
+}
+
+.back-img-2 {
+  width:30%;
+  position:absolute;
+  right:-1%;
+  bottom:0%;
+  overflow:hidden;
+}
+
 .footer {
-  height: 10vh;
+  /* height: 10vh; */
 }
 
 .myprofile {
@@ -64,6 +80,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom:50px;
 }
 .btn {
   flex: 1;

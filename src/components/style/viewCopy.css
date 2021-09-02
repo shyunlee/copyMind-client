@@ -4,7 +4,7 @@
     display: flex;
     flex-flow: column;
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
     height:90%;
     width:30%;
 }
@@ -12,8 +12,8 @@
 .view-heart-box {
     width:50px;
     float: right;
-    padding-right: 5%;
-    padding-top: 3%;
+    padding-right: 4%;
+    padding-top: 4%;
 }
 
 .view-copy-box {
@@ -22,11 +22,9 @@
     box-shadow: 3px 3px 3px #44433B;
     position: relative;
     border-radius: 30px;
-    height:95%;
+    height:100%;
     font-family: "Nanum Myeongjo", serif;
     justify-content: space-evenly;
-    text-align: center;
-    overflow: hidden;
 }
 
 .view-title-likeCount-box {
@@ -45,22 +43,37 @@
     font-family: "Nanum Myeongjo", serif;
     font-weight: bold;
     font-size: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .view-writer {
     padding-bottom: 2.5%;
     font-family: "Nanum Myeongjo", serif;
     text-align: right;
+    margin-right:25px;
+}
+
+.view-category {
+    padding-bottom: 1.5%;
+    font-family: "Nanum Myeongjo", serif;
+    text-align: right;
+    margin-right:25px;
+}
+
+.view-content-box {
+    background-image:url("../../images/paper-back.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position-x: center;
+    /* background-position-y: center; */
+    margin:15px 40px;
+    /* transform:translateY(-15px) */
+    padding-top:50px;
 }
 
 .view-content {
     line-height: 1.7;
     font-family: "Nanum Myeongjo", serif;
-    margin-top : 2%;
-    margin-left : 2%;
-    margin-right: 5%;
-    margin-bottom: 3%;
     word-wrap : break-word;
     overflow : auto;
     height: 430px;
@@ -68,7 +81,7 @@
 
 .view-btn-box {
     margin: 0%;
-    padding-top: 3%;
+    /* padding-top: 3%; */
     border-radius: 10%;
     justify-content: space-evenly;
     display: flex;
@@ -78,11 +91,7 @@
     padding-right: 5%;
 }
 
-.view-category {
-    padding-bottom: 1.5%;
-    font-family: "Nanum Myeongjo", serif;
-    text-align: right;
-}
+
 
 /* .btn {
     font-family: "Nanum Myeongjo", serif;

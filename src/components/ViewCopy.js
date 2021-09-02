@@ -35,6 +35,7 @@ class ViewCopy extends Component {
         const {category, content, title, writer, likeCount, id} = this.props.viewCopy
         let isLikeOn = false
         if (id) {
+            console.log(this.props.bookmarkList, id)
             isLikeOn = this.props.bookmarkList.includes(id)?true:false
         }
         return (
@@ -51,7 +52,9 @@ class ViewCopy extends Component {
                 <div className='view-writer'>{`${writer}`} </div>
                 <div className="view-category">{category}</div>
                 </div>
-                <div className='view-content'>{content}</div>
+                <div className="view-content-box">
+                    <div className='view-content'>{content}</div>
+                </div>
                 </div>
                 <div className='view-btn-box'>
                 <BtnViewCopy className='btn-viewcopy' viewClickHandler={this.props.getRandomCopy} history={this.props.history}/>

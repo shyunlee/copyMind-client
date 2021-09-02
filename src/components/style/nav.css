@@ -37,6 +37,10 @@
 	text-shadow: 1px 4px 4px lightgrey;
   }
 
+  .logo-img {
+	  width:70%;
+  }
+
   .navbar-menu-box {
 	  align-items: center;
   }
@@ -45,7 +49,7 @@
 	display: flex;
 	width: 30vw;
 	padding: 30px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	/* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
   }
   
   .navbar-menu li {

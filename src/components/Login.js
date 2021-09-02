@@ -31,6 +31,7 @@ export default function Login(props)  {
         const loginHandler = (postData) => {
             axios.post(`${URI}/sign/signin`,postData,{headers:{'Content-Type': 'application/json'}})
             .then(res =>{ 
+                console.log('login', res)
                 if(res.data.message === 'ok'){
                     dispatch(actionLogin(true))
                     dispatch(updateBookmarkList(res.data.bookmarkList))
