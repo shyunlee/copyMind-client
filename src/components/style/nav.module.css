@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+
+.navbar {
+	display: flex;
+	width:100%;
+	height: 100%;
+	padding:0 7em;
+}
+
+.logo {
+	flex-basis:20%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+	height:100%;
+	color: #e8a465;
+	text-shadow: 1px 4px 4px lightgrey;
+	max-width: 15rem;
+}
+
+.logo_img {
+	width:12rem;
+}
+
+.navbar_menu {
+	display:flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex: 1 2 55%;
+	min-width:30rem;
+	padding:0 5em;
+	list-style: none;
+}
+
+.navbar_menu a {
+	text-decoration: none;
+	font-family: "Nanum Myeongjo", serif;
+	font-weight: bold;
+	font-size: 1.3rem;
+	letter-spacing: 0.07rem;
+	color: #77695a;
+}
+
+
+.navbar_controller {
+	flex-basis:15%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding:0;
+}
+
+.controller_item {
+	background-color: #e7e4cd;
+	padding: 0.2em 1.2em;
+	list-style:none;
+	/* margin-right: 1.5em; */
+}
+
+.navbar_controller a{
+	text-decoration: none;
+	font-family: "Nanum Myeongjo", serif;
+	font-weight: bold;
+	font-size: 1rem;
+	letter-spacing: 0.07rem;
+	color: #77695a;
+}
+
+.mypage {
+	position: relative;
+	display:inline-block;	
+}
+
+.mypage_list {
+	display:none;
+	position: absolute;
+	background-color: #fcfbf2;
+	z-index: 1;
+	margin-top:0em;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	min-width: 10rem;
+	margin-top:0.3em;
+	left:0.5em;
+}
+
+.mypage_list a {
+	display: block;
+	margin:0.5em 0;
+	padding:0.1em 0 0.1em 0.8em;
+}
+
+
+.mypage:hover .mypage_list{
+	display:block;
+}
+
+.mypage_list a:hover {
+	background-color: #E7E0C9;
+}
+

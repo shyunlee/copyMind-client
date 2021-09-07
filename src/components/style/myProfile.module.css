@@ -1,0 +1,61 @@
+
+.container {
+  position: absolute;
+  z-index: 100;
+  border-radius: 20px;
+  border: 2px solid #969382;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 3px #44433b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  width: 50%;
+  height: 50%;
+  margin-bottom: 15em;
+}
+
+.info_box {
+  width: 100%;
+  padding:2em;
+  padding-top:5em;
+}
+
+.line_container {
+  display:flex;
+  width: 100%;
+  margin-bottom:5em;
+  padding:1em;
+  justify-content:space-between;
+}
+
+.userInfo {
+  font-size:1.5rem;
+}
+
+.btn_close {
+  width: 12em;
+  height: 10em;;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+  color: #555555;
+  background-color: #e7e4cd;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin: 20px;
+}
+
+.btn_close:hover {
+  background-color: #cecab2;
+  box-shadow: 0px 15px 20px rgba(124, 120, 86, 0.4);
+  color: black;
+  /* transform: translateY(-7px); */
+}
