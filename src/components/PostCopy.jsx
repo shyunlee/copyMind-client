@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
-import './style/postCopy.css'
+import styles from './style/postCopy.module.css'
 import {actionGetRandomCopy, URI} from '../actions'
 import axios from 'axios'
 axios.defaults.withCredentials=true;
@@ -32,24 +32,22 @@ const PostCopy = ({history}) => {
     }
 
     return (
-        <div className='post-box'>
-            <div className='post-copy-box'>
-                <input className='post-title' autoComplete="off" name='title' type='text' placeholder='제목을 입력하세요'  onChange={(e) => {handleChange(e.target)}}/>
-                <div className="post-writer-category-box">
-                    <input className='post-writer' autoComplete="off" name='writer' type="text" placeholder='저자' onChange={(e) => {handleChange(e.target)}}/>
-                    <div className="post-righter-box">
-                        <select className="post-category" name='category' onChange={(e) => {handleChange(e.target)}}>
-                            <option value="">--Category--</option>
-                            <option value="novel">Novel</option>
-                            <option value="poem">Poem</option>
-                            <option value="quotes">Quotes</option>
-                            <option value="essay">Essay</option>
-                        </select>
-                    </div>
+        <div className={styles.container}>
+            <input className={styles.post_title} autoComplete="off" name='title' type='text' placeholder='제목을 입력하세요'  onChange={(e) => {handleChange(e.target)}}/>
+            <div className={styles.post_info_box}>
+                <input className={styles.post_writer} autoComplete="off" name='writer' type="text" placeholder='저자' onChange={(e) => {handleChange(e.target)}}/>
+                <div className={styles.selection}>
+                    <select className={styles.post_category} name='category' onChange={(e) => {handleChange(e.target)}}>
+                        <option value="">Select Category</option>
+                        <option value="novel">Novel</option>
+                        <option value="poem">Poem</option>
+                        <option value="quotes">Quotes</option>
+                        <option value="essay">Essay</option>
+                    </select>
                 </div>
-                <textarea className="post-content" autoComplete="off" name="content" placeholder="당신의 마음을 담아보세요." onChange={(e) => {handleChange(e.target)}}></textarea>
             </div>
-            <div className='post-control-box'>
+            <textarea className={styles.post_content} autoComplete="off" name="content" spellcheck="false" placeholder="당신의 마음을 담아보세요." onChange={(e) => {handleChange(e.target)}}></textarea>
+            <div className={styles.post_btn}>
                 <input className='btn' type="button" value='Post Mind' onClick={handleClickPost}/>
             </div>
         </div>

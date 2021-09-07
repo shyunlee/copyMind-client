@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDetectOutsideClick} from '../useDetectOutsideClick'
-import './style/signup.css'
+import styles from './style/signup.module.css'
 import {URI} from '../actions'
 import axios from 'axios'
 axios.defaults.withCredentials=true;
@@ -53,21 +53,21 @@ const Signup = (props) => {
     useDetectOutsideClick(signupModalRef, () => props.modalClose('signup'))
 
     return (
-        <div className="signup-background">
-            <div className="signup-inputs" ref={signupModalRef}>
-                <div className="signup-close">
-                    <button className="signup-button" onClick={()=>{props.modalClose('signup')}}>X</button>
+        <div className={styles.signup_background}>
+            <div className={styles.signup_inputs} ref={signupModalRef}>
+                <div className={styles.signup_close}>
+                    <button className={styles.signup_button} onClick={()=>{props.modalClose('signup')}}>X</button>
                 </div>
-                <input id="signup_email" type="email" placeholder="Email" name="email" onChange={(e) => handleChange(e.target)}/>
+                <input className={styles.signup_email} type="email" placeholder="Email" name="email" onChange={(e) => handleChange(e.target)}/>
 
-                <input id="signup_username" type="text" placeholder="User Name" name="userName" onChange={(e) => handleChange(e.target)}/> 
+                <input className={styles.signup_username} type="text" placeholder="User Name" name="userName" onChange={(e) => handleChange(e.target)}/> 
                 
-                <input id="signup_pw" type="password" placeholder="Password" name="password" onChange={(e) => handleChange(e.target)}/> 
+                <input className={styles.signup_password} type="password" placeholder="Password" name="password" onChange={(e) => handleChange(e.target)}/> 
 
-                <input id="signup_confirmPW" type="password" placeholder="Confirm Password" name="checkPW" onChange={(e) => handleChange(e.target)}/>
+                <input className={styles.signup_confirmPW} type="password" placeholder="Confirm Password" name="checkPW" onChange={(e) => handleChange(e.target)}/>
 
-                <button id="signup-click" onClick={signupHandle}>Signup</button>
-                {errorMessage.length?<div className="alert-box">{errorMessage}</div>:<div className="pwAlert">비밀번호는 대/소문자,숫자,특수문자 형식인 8 ~ 15자리 입력</div>}
+                <button className={styles.signup_click} onClick={signupHandle}>Signup</button>
+                {errorMessage.length?<div className={styles.alert_message}>{errorMessage}</div>:<div className={styles.password_alert}>비밀번호는 대/소문자,숫자,특수문자 형식인 8 ~ 15자리 입력</div>}
             </div>
         </div>
     )

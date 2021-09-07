@@ -1,12 +1,11 @@
 import React from 'react'
-import './style/login.css'
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {URI, actionLogin, updateBookmarkList} from '../actions'
 import axios from 'axios'
 import {useDetectOutsideClick} from '../useDetectOutsideClick'
-import googleLogo from '../images/btn_google_signin_dark_normal_web.png'
+import styles from './style/login.module.css'
 
 axios.defaults.withCredentials=true
 
@@ -68,39 +67,38 @@ export default function Login(props)  {
 
 
         return(
-            <div id="loginInfo-background">
-            <div id="loginInfo-border" ref={loginModalRef}>
-                <div className="loginClose">
-                    <button className="modalClose" onClick={() => {props.modalClose('login')}}>X</button>
-                </div>
-                <div id="input">
-                    <div>
-                        <input type= "email" id='email' name='email' placeholder="Email" value={email} onChange={onChange}/>
+            <div className={styles.loginInfo_background}>
+                <div className={styles.login_border} ref={loginModalRef}>
+                    <div className={styles.loginClose}>
+                        <button className={styles.modalClose} onClick={() => {props.modalClose('login')}}>X</button>
                     </div>
-                    <div>
-                        <input type= "password" id='pw' name='password' placeholder="Password" value={password} onChange={onChange}/>
+                    <div className={styles.input_box}>
+                        <div>
+                            <input type= "email" className={styles.email} name='email' placeholder="Email" value={email} onChange={onChange}/>
+                        </div>
+                        <div>
+                            <input type= "password" className={styles.password} name='password' placeholder="Password" value={password} onChange={onChange}/>
+                        </div>
                     </div>
-                </div>
-                <div style={{textAlign:'center'}}>{message}</div>
-                <div className="buttons">
-                    <div id="LoginButton1" onClick={()=>{loginHandler(inputs)}}>
-                        <span>Login</span>
-                    </div>
-                    <div id="__SignUp__">
-                        <div  className="SignUp1"  id="SignUp" onClick={() => {
+                    {message ? <div className={styles.message}>{message}</div> : ''}
+                    <div className={styles.button_box}>
+                        <div className={styles.login_button} onClick={()=>{loginHandler(inputs)}}>
+                            Login
+                        </div>
+                        <div  className={styles.signup_button}  onClick={() => {
                             props.modalClose('login')
                             props.modalOpen('signup')
-                        }}>SignUp</div>
-                    </div>
-                    
-                    <div id="oauth-button">
-                        <img src={googleLogo} className="btn google-button" alt='google oAuth logo' onClick={() =>{onGoogleClick()}}/>
-                        <button className="btn github-button" onClick={ ()=>{githubOnClick()}}>
-                        <i className="fa fa-github"></i> Sign in with Github
-                        </button>
+                        }}>Sign Up</div>                        
+                        <div className={styles.authLogin_box}>
+                            <button className={styles.auth_button} onClick={() =>{onGoogleClick()}}>
+                                Sign In With Google
+                            </button>
+                            <button className={styles.auth_button} onClick={ ()=>{githubOnClick()}}>
+                                Sign In With Github
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         )
 }

@@ -1,25 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
 
-.copy-list {
-  overflow:auto;
-  height:75vh;
+.copy_list {
   display:flex;
   flex-flow:row wrap;
   justify-content: flex-start;
-  width:60%;
+  padding-left:0.5em;
 }
 
 .eachCopy {
-  width: 250px;
-  height:250px;
-  margin:10px;
+  width: 15em;
+  height:15em;
+  margin:0.7em 0.7em;
 }
 
 .eacyCopy:hover {
 	box-shadow: 0px 15px 20px rgba(2, 0, 36, 0.4);
 }
 
-.eachCopy-container {
+.eachCopy_container {
   position: relative;
   overflow: hidden;
   margin: 10px;
@@ -38,21 +36,21 @@
 
 }
 
-.eachCopy-container * {
+.eachCopy_container * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.45s ease-in-out;
   transition: all 0.45s ease-in-out;
 }
 
-.eachCopy-container img {
+.eachCopy_container img {
   width:250px;
   height:250px;
   position: relative;
   opacity: 0.9;
 }
 
-.eachCopy-content {
+.eachCopy_content {
   position: absolute;
   top: 40%;
   left: 7%;
@@ -62,7 +60,7 @@
   border-width: 1px 1px 0;
 }
 
-.eachCopy-info {
+.eachCopy_info {
   overflow: hidden;
   -webkit-transform: translateY(50%);
   transform: translateY(50%);
@@ -71,7 +69,7 @@
   width: 100%;
 }
 
-.eachCopy-info h2 {
+.eachCopy_info h2 {
   margin: 0 auto;
   padding: 0 10px;
   position: relative;
@@ -82,12 +80,12 @@
   padding:2px;
 }
 
-.eachCopy-info .info-writer {
+.eachCopy_info .info_writer {
   display: table;
 }
 
-.eachCopy-info h2:before,
-.eachCopy-info h2:after {
+.eachCopy_info h2:before,
+.eachCopy_info h2:after {
   position: absolute;
   display: block;
   width: 1000%;
@@ -96,14 +94,14 @@
   background: whitesmoke;
   top: 50%;
 }
-.eachCopy-info h2:before {
+.eachCopy_info h2:before {
   left: -1000%;
 }
-.eachCopy-info h2:after {
+.eachCopy_info h2:after {
   right: -1000%;
 }
 
-.eachCopy-content p {
+.eachCopy_content p {
   top: 35%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -121,28 +119,20 @@
   color:whitesmoke;
 } */
 
-.eachCopy-container:hover img {
+.eachCopy_container:hover img {
   opacity: 0.25;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-.eachCopy-container:hover .eachCopy-content {
+.eachCopy_container:hover .eachCopy_content {
   /* border: 1px solid whitesmoke; */
   top: 7%;
   bottom: 15%;
 }
 
-.eachCopy-container:hover p {
+.eachCopy_container:hover p {
   opacity: 1;
   -webkit-transition-delay: 0.35s;
   transition-delay: 0.35s;
-}
-
-.fa-heart{
-  color:red;
-}
-
-.inactive{
-  color:aliceblue
 }

@@ -6,7 +6,7 @@ import img4 from '../images/each-copy_4.jpg'
 import img5 from '../images/each-copy_5.jpg'
 import img6 from '../images/each-copy_6.jpg'
 import img7 from '../images/each-copy_7.jpg'
-import './style/listCopy.css'
+import styles from './style/listCopy.module.css'
 
 class ListCopy extends Component {
     constructor (props) {
@@ -17,7 +17,7 @@ class ListCopy extends Component {
     
     render() {
         return (
-            <div className='copy-list'>
+            <div className={styles.copy_list}>
                 {this.props.contentsList.map(el => {
                     this.count++
                     return (<EachCopy 
@@ -41,18 +41,18 @@ function EachCopy (props) {
     let {content, title, writer, likeCount} = props.copy
     content = content.slice(0, 50).concat('...')
     return (
-        <div className='eachCopy' onClick={() => {
+        <div className={styles.eachCopy} onClick={() => {
             props.sendCopyToState(props.copy)
             props.history.push('/view')
         }}>
-            <div className='eachCopy-container'>
+            <div className={styles.eachCopy_container}>
                 <img src={backImg[getRandom(0,6)]} alt='background-img' width="100%"/>
-                <div className='eachCopy-content'>
+                <div className={styles.eachCopy_content}>
                     <p>{content}</p>   
-                    <div className='eachCopy-info'>
-                        <h2 className='info-title'>{title}</h2>
-                        <h2 className='info-writer'>{writer}</h2>
-                        <h2 className='info-likeCount'>
+                    <div className={styles.eachCopy_info}>
+                        <h2 className={styles.info_title}>{title}</h2>
+                        <h2 className={styles.info_writer}>{writer}</h2>
+                        <h2 className={styles.info_likeCount}>
                             {likeCount} <i className="fa fa-heart"></i>
                         </h2>
                     </div>

@@ -1,94 +1,106 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
-.post-box{
+
+.container{
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     text-align: center;
-    display: inline-block;
-    height:90%;
-    width:30%;
-}
-
-
-.post-copy-box {
-    height: 95%; 
-    border-radius: 30px;
-    text-align: center;
-    border: 3px solid #969382;
+    margin-top: 2em;
+    min-width:25em;
+    height:80%;
+    width:50%;
+    border: 2px solid #969382;
     background-color: whitesmoke;
     box-shadow: 3px 3px 3px #44433B;
+    border-radius: 30px;
+    align-items: center;
+    padding:1em 3em;
+    /* font-family: "Nanum Myeongjo", serif; */
 }
 
-.post-title {   
+
+.post_title {   
     font-family: "Nanum Myeongjo", serif;
-    width: 80%;
-    padding-top: 5%;
-    padding-bottom: 2.5%;
+    width: 100%;
     background-color: transparent;
-    margin-bottom: 2.5%;
     font-weight: bold;
     text-align: center;
-    font-size: 30px;
-    outline: none;
-    border-left: black;
-    border-right: black;
-    border-top: black;
+    font-size: 2rem;
+    outline: none; 
+    border:none;
+    border-bottom:2px solid rgba(0, 0, 0,0.4);
+    padding:0.5em 0 0.2em 0;
+    margin-top:0.5em;
+    color:#555555;
 }
 
-.post-writer-category-box {
-    padding-right: 5%;
-    display: flex;
-    flex-flow: column;
+.post_info_box {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.post-writer {
+.post_writer,
+.post_category {
     font-family: "Nanum Myeongjo", serif;
     border: none;
-    padding-bottom: 2.5%;
+    padding:0.3em;
+    margin-top:0.5em;
     background-color: transparent;
     outline: none;
     text-align: right;
+    color:#555555;
+    font-size:1.1rem;
 }
 
-.post-category {
-    padding-bottom: 2.5%;
-    font-family: "Nanum Myeongjo", serif;
+.selection {
+    text-align: right;
+}
+
+.post_category {
     text-align-last: right;
     border: none;
     background-color: transparent;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     outline: none;
-    transition: all 0.2s ease-in 0s
+    transition: all 0.2s ease-in 0s;
+    width: 10em;
+    margin-top:0;
+    cursor: pointer;
 }
 
-.post-category:hover{
-    color: #966a1d;
+
+.post_category:hover{
+    color: #2D2424;
 }
 
 .post-righter-box { 
     text-align: right;
 }
 
-.post-content {
-    width: 80%;
-    height: 65%;
+.post_content {
+    width: 100%;
+    height: 30em;
     line-height: 1.7;
     font-family: "Nanum Myeongjo", serif;
-    padding-top: 5%;
+    padding: 1.5em 1em;
     background-color: transparent;
     border : none;
     outline: none;
-    font-size: 15px;
+    font-size: 1.1rem;
     resize: none;
+    letter-spacing: 0.5px;
+    color: #171010;
+    overflow: auto;
 }
 
-.post-option {
+/* .post-option {
     display:flex;
     flex-flow:column;
-}
+} */
 
-.post-control-box{
-    padding-top: 3%;
+.post_btn_container{
+    padding-top: 1em;
 }
 
 /* .post-btn {

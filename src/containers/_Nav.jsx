@@ -5,7 +5,6 @@ import {actionListupCopies, actionGetUserInfo, actionLogin, actionLogout, URI} f
 
 axios.defaults.withCredentials=true;
 
-
 const mapStateToProps = state => {
     return {
         isLogin:state.loginReducer.isLogin,
@@ -18,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
         getCopyList: (pathName) => {
             return axios.post(`${URI}/copy/getcopy`,{pathName}, {headers:{'Content-Type':'application/json'}})
             .then(res => {
-                // dispatch(actionListupCopies(res.data.result))
+                dispatch(actionListupCopies(res.data.result))
                 return res.data.result
             })
         },
