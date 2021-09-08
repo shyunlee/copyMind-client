@@ -10,7 +10,8 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const SIGNUP = 'SIGNUP'
 // export const URI = 'http://13.209.5.235:8080'
-export const URI = 'http://localhost:8080'
+export const URI = 'https://copymind.herokuapp.com'
+// export const URI = 'http://localhost:8080'
 
 export const actionGetRandomCopy = (copy) => ({
     type:GET_RANDOM_COPY,
