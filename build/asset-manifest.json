@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.542df925.chunk.css",
+    "main.js": "/static/js/main.4e54e77a.chunk.js",
+    "main.js.map": "/static/js/main.4e54e77a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a2f30310.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a2f30310.js.map",
+    "static/js/2.c3f26426.chunk.js": "/static/js/2.c3f26426.chunk.js",
+    "static/js/2.c3f26426.chunk.js.map": "/static/js/2.c3f26426.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.542df925.chunk.css.map": "/static/css/main.542df925.chunk.css.map",
+    "static/js/2.c3f26426.chunk.js.LICENSE.txt": "/static/js/2.c3f26426.chunk.js.LICENSE.txt",
+    "static/media/copymind_logo.472800ea.png": "/static/media/copymind_logo.472800ea.png",
+    "static/media/each-copy_1.7239fea4.jpg": "/static/media/each-copy_1.7239fea4.jpg",
+    "static/media/each-copy_3.ec348e89.jpg": "/static/media/each-copy_3.ec348e89.jpg",
+    "static/media/each-copy_4.0ab90908.jpg": "/static/media/each-copy_4.0ab90908.jpg",
+    "static/media/each-copy_5.ed26fd18.jpg": "/static/media/each-copy_5.ed26fd18.jpg",
+    "static/media/each-copy_6.a5b14370.jpg": "/static/media/each-copy_6.a5b14370.jpg",
+    "static/media/each-copy_7.97534a9c.jpg": "/static/media/each-copy_7.97534a9c.jpg",
+    "static/media/img_1.618684f9.png": "/static/media/img_1.618684f9.png",
+    "static/media/img_2.b9af140c.png": "/static/media/img_2.b9af140c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a2f30310.js",
+    "static/js/2.c3f26426.chunk.js",
+    "static/css/main.542df925.chunk.css",
+    "static/js/main.4e54e77a.chunk.js"
+  ]
+}
