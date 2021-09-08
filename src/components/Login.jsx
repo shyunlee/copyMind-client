@@ -41,11 +41,7 @@ export default function Login(props)  {
             .catch(err => {
                 if(err.response){
                     if(err.response.data.message === 'user not found'){
-                        setMessage('사용자 회원이 아닙니다.')
-                    }else if(err.response.data.message === ''){
-                        setMessage('비밀번호가 틀렸습니다.')
-                    }else{
-                        setMessage('서버와 연결이 끊겼습니다.')
+                        setMessage('The username and/or password you specified are not correct.')
                     }
                 }
             })
