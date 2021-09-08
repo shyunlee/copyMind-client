@@ -33,9 +33,9 @@ const PostCopy = ({history}) => {
 
     return (
         <div className={styles.container}>
-            <input className={styles.post_title} autoComplete="off" name='title' type='text' placeholder='제목을 입력하세요'  onChange={(e) => {handleChange(e.target)}}/>
+            <input className={styles.post_title} autoComplete="off" name='title' type='text' placeholder='Type the title'  onChange={(e) => {handleChange(e.target)}}/>
             <div className={styles.post_info_box}>
-                <input className={styles.post_writer} autoComplete="off" name='writer' type="text" placeholder='저자' onChange={(e) => {handleChange(e.target)}}/>
+                <input className={styles.post_writer} autoComplete="off" name='writer' type="text" placeholder='Writer' onChange={(e) => {handleChange(e.target)}}/>
                 <div className={styles.selection}>
                     <select className={styles.post_category} name='category' onChange={(e) => {handleChange(e.target)}}>
                         <option value="">Select Category</option>
@@ -46,7 +46,7 @@ const PostCopy = ({history}) => {
                     </select>
                 </div>
             </div>
-            <textarea className={styles.post_content} autoComplete="off" name="content" spellcheck="false" placeholder="당신의 마음을 담아보세요." onChange={(e) => {handleChange(e.target)}}></textarea>
+            <textarea className={styles.post_content} autoComplete="off" name="content" spellcheck="false" placeholder="Type your mind here" onChange={(e) => {handleChange(e.target)}}></textarea>
             <div className={styles.post_btn}>
                 <input className='btn' type="button" value='Post Mind' onClick={handleClickPost}/>
             </div>
