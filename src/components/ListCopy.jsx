@@ -9,19 +9,22 @@ import img7 from '../images/each-copy_7.jpg'
 import styles from './style/listCopy.module.css'
 
 class ListCopy extends Component {
-    constructor (props) {
-        super(props)
 
-        this.count=0
+    componentDidMount() {
+        let category = this.props.location.pathname.slice(1)
+        this.getCopies(category)
     }
-    
+
+    async getCopies (category) {
+        await this.props.getCopyList(category)
+    }
+
     render() {
         return (
             <div className={styles.copy_list}>
                 {this.props.contentsList.map(el => {
-                    this.count++
                     return (<EachCopy 
-                        key={this.count} 
+                        key={el.id} 
                         copy={el} 
                         history={this.props.history} 
                         sendCopyToState={this.props.sendCopyToState}

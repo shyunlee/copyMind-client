@@ -1,11 +1,14 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom'
+import axios from 'axios'
 import './App.css';
 import styles from './app.module.css'
 import {PostCopy,Signup, Login } from './components'
 import {_Main, _ListCopy, _ViewCopy, NavContainer, MyProfileContainer } from './containers'
 import backImg2 from './images/img_1.png'
 import backImg1 from './images/img_2.png'
+
+axios.defaults.withCredentials=true;
 
 class App extends React.Component {
   state={
@@ -14,24 +17,6 @@ class App extends React.Component {
     isLoginOpen:false,
     isSignupOpen:false,
   }
-  // async getAccessToken(authorizationCode){
-  //   await axios.post(`${URI}/oauth/github`,{authorizationCode:authorizationCode},{withCredentials:true})
-  //   .then(result =>{
-  //     console.log(result)
-  //     if(result.data.message === 'ok'){
-  //       this.modalClose('login')
-  //     }
-  //   })
-  // }
-
-  // componentDidMount(){
-  //   const url = new URL(window.location.href)
-  //   const authorizationCode = url.searchParams.get('code')
-  //   if (authorizationCode) {
-  //     console.log('authorizationCode')
-  //     this.getAccessToken(authorizationCode)
-  //   }
-  // }
 
   modalOpen (value) {
     if (value === 'login') this.setState({isLoginOpen:true, isSignupOpen:false})

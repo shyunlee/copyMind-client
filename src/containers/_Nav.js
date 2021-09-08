@@ -26,7 +26,10 @@ const mapDispatchToProps = (dispatch) => {
         getUserInfo: () => {
             axios.get(`${URI}/user/userinfo`, {headers:{'Content-Type':'application/json'}})
             .then(res => {
-                dispatch(actionGetUserInfo(res.data))
+                if (res.data.id) {
+                    dispatch(actionLogin(true))
+                    dispatch(actionGetUserInfo(res.data))
+                } 
             })
         },
 

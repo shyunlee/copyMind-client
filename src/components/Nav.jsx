@@ -12,7 +12,6 @@ class Nav extends Component {
     }
     constructor (props) {
         super(props)
-
         this.count=0;
     }
 
@@ -37,10 +36,13 @@ class Nav extends Component {
       }
     
       componentDidMount(){
+          console.log('nav did mount')
         const url = new URL(window.location.href)
         const authorizationCode = url.searchParams.get('code')
         if (authorizationCode) {
           this.getAccessToken(authorizationCode)
+        } else {
+            this.props.getUserInfo()
         }
       }
 
@@ -52,6 +54,7 @@ class Nav extends Component {
         await this.props.getCopyList(category)
     }
 
+    
     render() {
         return (
             <nav className={styles.navbar}>
